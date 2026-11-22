@@ -1,0 +1,48 @@
+server:
+  tomcat:
+      max-threads: 200 
+
+spring:
+  security:
+    user:
+      name: 
+      password: 
+      roles:
+
+database:
+  client-id: IUSERHUBSERVICE
+  program: iuser-hub-service
+  terminal: iuser-hub-service
+
+#proverava se da li se username ili email poklapa sa navedenim znakovima, 
+#ako ima znak van opsega mala slova, brojevi znakovi _ - . @ +   ; ne dozvoljavamo registraciju
+#ako je parametar definisan sa  patern:   nece da proveravamo nista
+#ako se ukljucuju i velika slova patern treba da bude   [A-Za-z0-9\\_\\-\\.\\@\\.+]+
+username_email:
+  validation:
+    patern: '[a-z0-9_\-@.+]+'
+email:
+  verify:
+    apiKey: SXPsKKUY8TJm6MbsBqdy4
+    baseUrl: https://apps.emaillistverify.com/api/verifyEmail
+
+acKrila:
+  platform:
+    api:
+      readTimeoutMs: 30000
+      connectTimeoutMs: 30000
+      url:
+      key:
+        header:
+        value:
+
+document-repository:
+  enabled: false
+  url:
+  username:
+  password:
+
+autoConfirmWithdrawalAgent: server
+
+
+uisUserServiceUrl: http://uis-user-service.ps:8080/uis-user-service/uis/user

@@ -1,0 +1,177 @@
+database:
+ type: oracle 
+ client-id: cd2
+ program: CD2 Mine service
+ terminal: cd2ora
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+
+kafka:
+  clientId:
+    suffix: pionir-ct
+  publishTransactions: true
+  publishRows: true
+
+email:
+ from: cd2-oracle-mine-pionir-ct@pionir.io
+
+lagToleranceMs: 1500
+
+cdcs:
+ groups:  
+  - groupName: odds
+    exchangeName: CDC_ODDS_EX
+    tables:    
+    - name: OD_BET
+    - name: OD_BET_FORMAT
+    - name: OD_BET_LINE    
+    - name: OD_BET_PICK
+    - name: OD_BET_PICK_GROUP
+    - name: OD_BET_PAGE
+    - name: OD_BET_PAGE_PICK_GROUP
+    - name: OD_BET_PAGE_PICK_INPUT
+    - name: OD_CBL_AUTH_PARAMS
+    - name: OD_CBL_BLOCKADES
+    - name: OD_CBL_LIMITS
+    - name: OD_CBL_CONDITIONS
+    - name: OD_BOOK
+    - name: OD_BOOK_ANNEX
+    - name: OD_INSTANCE_COUNTRY
+    - name: OD_SPORT
+    - name: OD_LEAGUE
+    - name: OD_TEAM
+    - name: OD_LEAGUE_ANNEX
+    - name: OD_LEAGUE_TABLE
+    - name: OD_LEAGUE_GROUP
+    - name: OD_ROUND
+    - name: OD_MATCH
+    - name: OD_MATCH_BET
+    - name: OD_MATCH_ANNEX
+    - name: ES_RESULT
+    - name: OD_RESULT
+    - name: OD_RESULT_SCORE
+    - name: OD_FEED
+    - name: OD_TIP_TYPE
+    - name: OD_SCORE_TYPE
+    - name: OD_RESULT_TYPE
+    - name: OD_BOOK_SPORT
+  - groupName: liveodds
+    exchangeName: CDC_ODDS_LIVE_EX
+    tables:
+     - name: OD_MATCH_LIVE
+     - name: OD_MATCH_LIVE_BET
+  - groupName: core
+    exchangeName: CDC_CORE_EX
+    tables:
+     - name: CO_COUNTRY
+     - name: CO_PREVOD
+     - name: CO_PREVOD_JEZIK
+     - name: CO_RISK_TAG
+     - name: QB_RESOURCE
+     - name: QB_PROMOTION
+     - name: QB_JACKPOT_CONFIG
+     - name: QB_JACKPOT_GROUP
+     - name: QB_JACKPOT_CONFIG_GROUP
+     - name: QB_JACKPOT_CONFIG_MATCH
+     - name: IC_CURRENCY
+     - name: CO_CASINO_GAME
+     - name: CO_CASINO_GAME_TYPE
+     - name: CO_LOBBY
+     - name: CO_LOBBY_CASINO_GAME
+     - name: CO_CASINO_ROOM
+     - name: IC_BLOCKED_IP_ADDRESS
+     - name: IC_BLOCKED_COUNTRY
+     - name: CO_PROVIDER
+     - name: CO_GAME_PRODUCER
+     - name: CO_CASINO_GAME_BADGE
+  - groupName: instanceCore
+    exchangeName: CDC_INSTANCE_CORE_EX
+    instanceFilter: true
+    tables:    
+    - name: CO_PARAMETER
+    - name: CO_PARAMETER_GROUP
+    - name: CO_PARAMETER_LOCATION
+    - name: CO_PARAMETER_TERMINAL
+    - name: CO_PARAMETER_IUSER
+    - name: IC_PARAMETER
+    - name: IC_PARAMETER_INSTANCE
+    - name: CO_LOCATION_GROUP
+    - name: CO_LOCATION
+    - name: CO_TERMINAL
+    - name: CO_TERMINAL_HB
+    - name: IC_BONUS
+    - name: IC_UIS_MSG
+    - name: IC_USER
+    - name: IC_USER_ACCOUNT
+    - name: IC_USER_BANK_ACCOUNT
+    - name: IC_USER_ACCOUNT_TRANSACTION
+    - name: IC_USER_BONUS
+    - name: IC_USER_DIRECT_NOTIFICATION
+    - name: IC_TRANSFER_REQUEST
+    - name: IC_USER_FCM
+    - name: IC_DEPOSIT_ACCOUNT
+    - name: IC_DEPOSIT_REQUEST
+    - name: IC_GIFT
+    - name: IC_USER_GIFT
+    - name: IC_USER_NOTE
+    - name: IC_USER_ATTRIBUTE
+    - name: IC_PENDING_GIFT
+    - name: IC_TOURNAMENT
+    - name: IC_TOURNAMENT_GAME
+    - name: IC_TOURNAMENT_PRIZE
+    - name: IC_TOURNAMENT_ROUND
+    - name: IC_TOURNAMENT_ROUND_LIST
+    - name: IC_TOURNAMENT
+    - name: IC_TOURNAMENT_ROUND_POS
+    - name: IC_LOGIN_ATTEMPT
+    - name: IC_WITHDRAWAL_REQUEST
+    - name: CO_USER
+    - name: CO_USER_LOCATION
+    - name: CO_USER_ROLE
+    - name: CO_USER_WEB_ROLE
+    - name: CO_AFFILIATE
+    - name: IC_DEVICE
+    - name: IC_USER_DEVICE
+    - name: IC_INCODE_SESSION
+  - groupName: tickets
+    exchangeName: CDC_TICKETS_EX
+    instanceFilter: true
+    tables:
+    - name: W3_TICKET
+    - name: W3_ETICKET
+    - name: W3_TICKET_TEMPLATE
+    - name: W3_TICKET_MATCH_TYPE
+    - name: W3_JOURNAL
+    - name: W3_EJOURNAL
+    - name: W3_TICKET_COUNTER_VALUE
+    - name: QB_TICKET_AUTH
+    - name: QB_PREPAYMENT
+  - groupName: transactions
+    exchangeName: CDC_TRANSACTIONS_EX
+    instanceFilter: true
+
+queue:
+ name: CD2$_TRANSACTION_QUE
+ #vreme koje se ceka nakon izvrsenja taska (u ms)
+ fixedDelay: 50
+ #array_size parametar za dequeue
+ numberOfMessagesFetched: 10
+ #dequeue_options.wait parametar (0 = NO_WAIT)
+ waitOptionsValue: 0
+ 
+kafka-admin:
+  enabled: true
+  topics:
+  - name: CDC_TRANSACTIONS_EX
+    numOfPartitions: 8
+    replicationFactor: 2
+    retentionMs: 86400000
+    maxMessageBytes: 50000000
+    useUnderscore: true
+  - name: CDC_ROW_IDS_EX
+    numOfPartitions: 16
+    replicationFactor: 2
+    retentionMs: 259200000
+    maxMessageBytes: 50000000
+    useUnderscore: true

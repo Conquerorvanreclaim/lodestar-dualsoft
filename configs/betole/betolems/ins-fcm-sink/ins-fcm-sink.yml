@@ -1,0 +1,18 @@
+kafka:
+  client-id:
+    ins-fcm-sink
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+firebase:
+  serverKey: AAAAv1troMw:APA91bH7vSL_xE5PKLPpQRk0Kl94DHKyWqBfcf_ZgKAoQSTQFm6PrNtOz3WOdshmRD8Nu-yUWTOIW0sBeYzxtwsebn74UV62fQbZJK59iqkbtPxURuKXewgE3t2eALhyseXTICnNOTct
+  url: https://fcm.googleapis.com/fcm/send
+  sdk:
+    config: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"betole-7ada0\",\n  \"private_key_id\": \"ca20bc791fb9770e68a1d6789e65cf85eb6b7622\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDnqawuEERdhlHk\\nQGMZfF75XTHKAY9u+exukbPJZxCuhwUgEJiVH5QgbQ6dBahrEiWW6iqaGIvrmddu\\nyEyF9Kyx+qAzY4USpgdB9fx47ViogcwDPW/EQaJ4dBJz1YmIbsWd975U5iuKOntj\\niacPVTOTur72+mb3dA4nXVou2T1FfSEBlMbcaRGRkntm1PJhJnt/mweowVRJqtFq\\nP38Iseo2r4yhSeEq1SAlOAnFOrNSzkQ5HnNg+nGlv7JWvuMQDHfGyFFiQ+NEzvb8\\ncTjgUWWpeArWZ3kHsXvKCPZHeV5eTSuCVGv/TagZRVw67yXSKE7dcZcVJMKVqO0e\\nURxkm951AgMBAAECggEAEnrD8TFmAAnjcBrnbNSGz6CCBL8GyI+nhGhwrYZgW8kJ\\n0nV7HnDUREPpewLFB7Qntc1R1FSp8K4nHmoG71abDLV/4FQ2J3csCV8hzSmtvVS2\\nnU7iIrHTpS/T0FP+h8NtAH1kkZQsxqGEpJDfTTH648ltS06ii7xrwUhz6wce7p3L\\npnDjDZvcHqsaGdTFpZqwmz1bjZC/ANygilghEfJntzUMM+tjBaCxgXydSOpLQRja\\nEAR1ta4YPE0ezS9F3ugR5Cjqg7nb1eLZMWtJMl0Dz+Eav1FrnVYPonc6ljCM8upB\\nc3rSmwndvIxzCSW+QALnKx29mLEov23jpkRISHzs/wKBgQD0HBfComP5ISWP4dL4\\nhVp9M79ex0xTdJ5vwU+ZqtkTob4n+wdNNcUUEIDQ9w1KnVB6ita7TgipL6gq/FI7\\nJ/QkQtuQ1GEUyjRXvF48WRJFtc+KEcMrODHhUeGXlQ8dP+IxZrq5xsBGHek0vEti\\nNHww5Lfi/qRYvswhQqZSzeVjHwKBgQDy8l+aW0pLFnN14Ckzc6ga9nd0mi06Z+pS\\nBiQAuFN0uHkfU+gej/bpXInniEM5c4zDsEMlSrBEYa/sHaR8UNNY8qC+iApYgnRX\\nTV7ElzMzVQ2E5tBQUeKelNb8O6z3prQ3VvpQuRJosdtpWlDXOTrot5wVVbUn129r\\nxAjxjvL/6wKBgQDIfTI+lyVI/iJdk/m0R8JURmYMr99OQ9/EpZ589UcoypTlPVV3\\n4oukuREzj1UJTT9GBjXqzGJsokmaVHYtQ9lO1uKChwvdCV4IGRvEsNtDCdoU6hXD\\nr3m4N4ny92fcfBWIwXjnEAfnDrX0rBm15KmDdrZY5w+QG9SIFLeKFrUpvQKBgC1I\\n8HkdOyPz82GtfwCQNm2QM4QQmQ2iARN5AY0Azs2a9TjZsxK/Uw78qNf3llBHMZ3o\\nZRu2aFTWwKwKenaRulOCJmRdh1AoQPdk/J04cdrHp9V2EK5oFQ3qQIiTtxISiNUn\\n6VDSrpPFU1i39QmpKUnnr7hqWXIrviEgUWp1cuYxAoGAEMpRejL99jscxg2k2ibR\\nuOntgbc3XjBHb8ljvY5kOTueDxD/Gug14emp8N3Qywq32ArHpQ57IypY4H8FP0cV\\nelBcZkZpm9gb+GE/uVyBH3k5xTiLxI6FM6Puzx8+F6mllXvRkHUVuU4Z0Q5k8Na1\\niPL0PbOl0w+UYM1fKHXIcgI=\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"firebase-adminsdk-u35kd@betole-7ada0.iam.gserviceaccount.com\",\n  \"client_id\": \"107763731771092548723\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-u35kd%40betole-7ada0.iam.gserviceaccount.com\",\n  \"universe_domain\": \"googleapis.com\"\n}"
+  v1Api:
+    enabled: true
+    url: https://fcm.googleapis.com/v1/projects/betole-7ada0/messages:send

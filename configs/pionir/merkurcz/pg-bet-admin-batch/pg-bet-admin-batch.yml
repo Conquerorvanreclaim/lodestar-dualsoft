@@ -1,0 +1,45 @@
+database:
+ username: pionir
+ password: pionir
+ type: postgresql
+ url: jdbc:pgsql://db1-cz.pionir.io:5432/merkurxtip
+ driver-class-name: com.impossibl.postgres.jdbc.PGDriver 
+ client-id: PgBetAdminBatch
+ program: PgBetAdminBatch
+ terminal: PgBetAdminBatch
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+
+#Parametri za refresh materijalnih vjuova
+refreshMaterializedViews: true
+service:
+  interval-for-refreshing-w3-materialized-views: 300000
+  interval-for-refreshing-ic-materialized-views: 300000
+  interval-for-refreshing-ic-user-materialized-views: 300000
+  interval-for-refreshing-listic-2-materialized-views: 300000
+  task:
+    refresh:
+      ic-user-materialized-views:
+        refreshIcUserAcountTransaction: true
+        refreshIcUserAcount: true
+      listic-2-materialized-views:
+        refreshListic2: false
+      w3-materialized-views:
+        refreshW3Ejournal: true
+        refreshW3Journal: true
+        refreshW3TicketMatchType: true
+        refreshW3Ticket: true
+
+#Parametri za generisanje XML fajla za RS MFIN
+generateXmlReport: false
+fixedDelayForXmlReport: 60000
+xmlReportFilePath: /data/xmlReport/
+xmlReportIdentificationNumber: 
+xmlReportAdministratorFirstName: 
+xmlReportAdministratorLastName: 
+xmlReportAdministratorJMBG: 
+
+#RS_XMLREPORT_DI
+createDailyRsXmlReport: false
+createDailyRsXmlReportCron: 0 30 0 * * *

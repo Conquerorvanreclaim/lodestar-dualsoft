@@ -1,0 +1,28 @@
+database:
+  client-id: bet-genius-offer-sink
+  program: BetGenius offer sink
+  terminal: bet-genius-offer-sink
+  min-idle: 1
+  max-idle: 2
+  max-active: 8
+
+kafka:
+  numberOfThreads: 32
+  clientId:
+    suffix: pionirct
+  topics: ${kafka.topics.prefix}_CDCT_OD_MATCH,${kafka.topics.prefix}_CDCT_OD_MATCH_BET,${kafka.topics.prefix}_CDCT_OD_MATCH_LIVE,${kafka.topics.prefix}_CDCT_OD_MATCH_LIVE_BET
+  error:
+    max:
+      failures: 20
+
+
+token:
+  url: https://genius-sports.eu.auth0.com/oauth/token
+  environment: production
+  audience: https://api.geniussports.com
+  fixedDelayInMiliSec: 3000000
+
+# ogranicenje za starost podataka(u satima) koji se citaju sa kafke
+filterTimeFrame: 10
+
+send-bet-genius-offers: false

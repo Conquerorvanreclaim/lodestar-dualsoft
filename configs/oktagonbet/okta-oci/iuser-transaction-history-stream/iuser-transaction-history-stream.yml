@@ -1,0 +1,12 @@
+kafka:
+  client-id:
+    okta-oci
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2
+
+input-topic: CDC_NOTIFICATIONS
+
+ttlWeekDays: 7
+ttlMonthDays: 31

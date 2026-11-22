@@ -1,0 +1,256 @@
+database:
+ type: oracle
+ client-id: cd2
+ program: CD2 Tables Stream
+ terminal: cd2ora
+ min-idle: 16
+ max-idle: 16
+ max-active: 16
+
+kafka:
+  compression-enabled: true
+  batch-size: 
+  max-request-size:
+  linger-ms:
+  num-of-threads: 16
+
+# stream-tables:
+#     tables:
+#         - name: OD_BET
+#           compact: true
+#         - name: OD_BET_FORMAT
+#           compact: true
+#         - name: OD_BET_LINE
+#           compact: true
+#         - name: OD_BET_PICK
+#           compact: true
+#         - name: OD_BET_PICK_GROUP
+#           compact: true
+#         - name: OD_BET_PAGE
+#           compact: true
+#         - name: OD_BET_PAGE_PICK_GROUP
+#           compact: true
+#           queryName: CD$_OD_BET_PAGE_PICK_GROUP
+#         - name: OD_BET_PAGE_PICK_INPUT
+#           compact: true
+#         - name: OD_CBL_AUTH_PARAMS
+#           compact: true
+#         - name: OD_CBL_BLOCKADES
+#           compact: true
+#         - name: OD_CBL_LIMITS
+#           compact: true
+#         - name: OD_CBL_CONDITIONS
+#           compact: true
+#         - name: OD_BOOK
+#           compact: true
+#         - name: OD_BOOK_ANNEX
+#           compact: true
+#         - name: OD_INSTANCE_COUNTRY
+#           compact: true
+#         - name: OD_SPORT
+#           compact: true
+#         - name: OD_LEAGUE
+#           compact: true
+#         - name: OD_LEAGUE_ANNEX
+#           compact: true
+#         - name: OD_LEAGUE_TABLE
+#         - name: OD_LEAGUE_GROUP
+#           compact: true
+#         - name: OD_TEAM
+#           compact: true
+#         - name: OD_ROUND
+#           compact: true
+#         - name: OD_FEED
+#           compact: true
+#         - name: OD_MATCH
+#           compact: true
+#         - name: OD_MATCH_BET
+#           compact: true
+#           queryName: CD$_OD_MATCH_BET
+#         - name: OD_MATCH_ANNEX
+#           compact: true
+#         #- name: OD_MATCH_LIVE
+#         #  compact: true
+#         #  queryName: CD$_OD_MATCH_LIVE
+#         #- name: OD_MATCH_LIVE_BET
+#         #  compact: true
+#         #  queryName: CD$_OD_MATCH_LIVE_BET
+#         - name: OD_TIP_TYPE
+#           compact: true
+#         - name: ES_RESULT
+#           queryName: CD$_ES_RESULT
+#         - name: CO_COUNTRY
+#           compact: true
+#         - name: CO_PREVOD
+#           compact: true
+#         - name: CO_PREVOD_JEZIK
+#           compact: true
+#         - name: CO_PARAMETER
+#           compact: true
+#         - name: CO_PARAMETER_GROUP
+#           compact: true
+#         - name: CO_PARAMETER_LOCATION
+#           compact: true
+#         - name: CO_PARAMETER_TERMINAL
+#           compact: true
+#         - name: CO_PARAMETER_IUSER
+#           compact: true
+#         - name: IC_BONUS
+#           compact: true
+#         - name: IC_PARAMETER
+#           compact: true
+#         - name: IC_PARAMETER_INSTANCE
+#           compact: true
+#         - name: CO_LOCATION_GROUP
+#           compact: true
+#         - name: CO_LOCATION
+#           compact: true
+#         - name: CO_TERMINAL
+#           compact: true
+#         - name: IC_USER
+#           compact: true
+#         - name: IC_USER_ACCOUNT
+#           compact: true
+#         - name: IC_USER_ACCOUNT_TRANSACTION
+#         - name: IC_USER_BONUS
+#           compact: true
+#           queryName: IC_USER_BONUS_VIE 
+#         - name: W3_TICKET
+#           queryName: W3_TICKET_VIE
+#         - name: IC_USER_DIRECT_NOTIFICATION
+#         - name: QB_TICKET_AUTH
+#         - name: IC_TRANSFER_REQUEST
+#         - name: QB_PREPAYMENT
+#         - name: IC_USER_FCM
+#           queryName: CD$_IC_USER_FCM
+#           compact: true
+#         - name: IC_DEPOSIT_ACCOUNT
+#           compact: true
+#         - name: IC_DEPOSIT_REQUEST
+#           queryName: CD$_IC_DEPOSIT_REQUEST
+#         - name: IC_GIFT
+#           compact: true
+#         - name: IC_USER_GIFT
+#         - name: IC_PENDING_GIFT
+#         - name: IC_USER_ATTRIBUTE
+#           queryName: CD$_IC_USER_ATTRIBUTE
+#         - name: IC_TOURNAMENT
+#           compact: true
+#         - name: IC_TOURNAMENT_GAME
+#           compact: true
+#         - name: IC_TOURNAMENT_PRIZE
+#           compact: true
+#         - name: IC_TOURNAMENT_ROUND
+#           compact: true
+#         - name: IC_TOURNAMENT_ROUND_LIST
+#           compact: true
+#         - name: IC_TOURNAMENT_ROUND_POS
+#           queryName: CD$_IC_TOURNAMENT_ROUND_POS
+#           compact: true
+#         - name: IC_LOGIN_ATTEMPT
+#         - name: W3_TICKET_TEMPLATE
+#         - name: CO_PROVIDER
+#           compact: true
+#         - name: CO_USER
+#           compact: true
+#         - name: CO_USER_LOCATION
+#           compact: true
+#         - name: CO_USER_ROLE
+#           compact: true
+#         - name: CO_USER_WEB_ROLE
+#           compact: true
+#         - name: CO_RISK_TAG
+#         - name: QB_RESOURCE
+#         - name: QB_PROMOTION
+#         - name: QB_JACKPOT_CONFIG
+#           compact: true
+#         - name: IC_CURRENCY
+#           compact: true
+#         - name: CO_CASINO_GAME
+#           compact: true
+#         - name: CO_LOBBY
+#           compact: true
+#         - name: CO_LOBBY_CASINO_GAME
+#           compact: true
+#         - name: CO_CASINO_ROOM
+#           compact: true  
+#         - name: CO_AFFILIATE
+#           compact: true 
+#         - name: IC_WITHDRAWAL_REQUEST
+#         - name: IC_BLOCKED_IP_ADDRESS
+#         - name: IC_BLOCKED_COUNTRY
+
+# kafka-admin:
+#     enabled: true
+#     default:
+#         numOfPartitions: 1
+#         replicationFactor: 2
+#         useUnderscore: true
+#         deleteRetentionMs: 3600000
+#         maxMessageBytes: 50000000
+#         segmentBytes: 67108864
+#         compact:
+#             segmentMs: 60000 
+#     topics:
+#         #- name: CDCT_OD_MATCH_LIVE
+#         #  numOfPartitions: 16
+#         #  cleanupPolicy: delete,compact
+#         #  segmentMs: 60000
+#         #  retentionMs: 3600000
+#         #- name: CDCT_OD_MATCH_LIVE_BET
+#         #  numOfPartitions: 16
+#         #  cleanupPolicy: delete,compact
+#         #  segmentMs: 60000
+#         #  retentionMs: 3600000
+#         - name: CDCT_OD_MATCH
+#           numOfPartitions: 16
+#           cleanupPolicy: delete,compact
+#           segmentMs: 60000
+#           retentionMs: 345600000
+#         - name: CDCT_OD_MATCH_BET
+#           numOfPartitions: 16
+#           cleanupPolicy: delete,compact
+#           segmentMs: 60000
+#           retentionMs: 345600000
+#         - name: CDCT_OD_MATCH_ANNEX
+#           numOfPartitions: 16
+#           cleanupPolicy: delete,compact
+#           segmentMs: 60000
+#           retentionMs: 345600000
+#         - name: CDC_IC_USER_ACCOUNT_TRANSACTION
+#           replicationFactor: 2
+#           numOfPartitions: 16
+#         - name: CDCT_IC_USER
+#           replicationFactor: 2
+#           numOfPartitions: 8
+#         - name: CDCT_IC_USER_ACCOUNT
+#           replicationFactor: 2
+#           numOfPartitions: 16
+#         - name: CDCT_IC_USER_FCM
+#           replicationFactor: 2
+#           numOfPartitions: 4
+#         - name: CDCT_IC_USER_BONUS
+#           replicationFactor: 2
+#           numOfPartitions: 4
+#         - name: CDC_W3_TICKET
+#           replicationFactor: 2
+#           numOfPartitions: 8
+#         - name: CDC_QB_PREPAYMENT
+#           replicationFactor: 2
+#           numOfPartitions: 4
+#         - name: CDC_QB_TICKET_AUTH
+#           replicationFactor: 2
+#           numOfPartitions: 4
+#         - name: CDC_ES_RESULT
+#           replicationFactor: 2
+#           numOfPartitions: 4
+#         - name: CDCT_OD_FEED
+#           numOfPartitions: 1
+#           replicationFactor: 2
+#           cleanupPolicy: compact
+#           segmentMs: 60000
+#         - name: CDCT_IC_TOURNAMENT_ROUND_POS
+#           numOfPartitions: 1
+#           replicationFactor: 2
+#           cleanupPolicy: delete,compact
+#           segmentMs: 60000

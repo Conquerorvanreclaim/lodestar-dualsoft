@@ -1,0 +1,29 @@
+database:
+  username: pionir
+  password: pionir
+  type: oracle
+  url: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = db-sa-scan.pionir.io)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = piowh1) ) )
+  driver-class-name: oracle.jdbc.OracleDriver
+  client-id: ticketproc
+  program: Ticket proc oracle
+  terminal: ticketprocoracle
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+ 
+kafka:
+  clientId:
+    suffix: piowh
+  instances: 
+  - 'NULL'
+  - MERKURCZCERT
+  - IFSTEST
+  - MERKURCZ
+  - TESTMERKUR
+  - LANDMERKURRS
+  - MERKURRS
+  - PIORADAR
+  - PIOSTAGE
+
+  numberOfThreads: 2
+  numberOfRetries: 20

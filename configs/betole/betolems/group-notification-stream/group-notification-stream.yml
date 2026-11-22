@@ -1,0 +1,58 @@
+kafka:
+  client-id:
+    group-notification-stream-ms-1
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+cassandra:
+  cluster_name: ibet-betolems-cassandra-cluster
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  result_change:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+          useUnderscore: true
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+
+egt:
+    jackpot_url: "EGT@https://betole.games.amusnet.io/stats/jackpot_Betole_RSD.json"
+    enabled_jackpot: true
+
+firebase:
+  v1Api:
+    enabled: true
+
+egt_digital:
+    jackpot_url: "355_RS_BETOLE@https://betolers-api-prod-bgsp.egt-ong.com/api/jackpot/stats#"
+    enabled_jackpot: true
+    instance_name: "Bell Link"
+    selected_instances: "Bell Link@Clover Chance@High Cash"
+
+synot:
+    jackpot_url: "SYNOT_RS@https://neoec00ca.syngamtech.com/v1.11/ProgressiveBonus/BetoleRS/GetInfo"
+    enabled_jackpot: true
+    instance_name: "SYNOT_RS@BetoleRSProgressiveBonus"
+    secret_key: "SYNOT_RS@dVPDi2RxaSIwoxrOeSoM"
+

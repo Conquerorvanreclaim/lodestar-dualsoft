@@ -1,0 +1,28 @@
+database:
+ username: pioboa
+ password: pioboa
+ type: oracle
+ driverClassName: oracle.jdbc.OracleDriver
+ url: jdbc:oracle:thin:@//db-ct-scan.pionir.io:1521/piodb1.pionir.io
+ client-id: boa-league-table-processor
+ program: boa-league-table-processor
+ terminal: boa-league-table-processor
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+
+kafka:
+  thread-numbers: 4
+  clientId:
+    suffix: local
+  pollTimeoutMs: 200
+  tolerableLagInSeconds: 3
+  maxPollRecords: 100
+  maxPollInterval: 300000
+kafka-admin:
+  enabled: true
+  topics:
+    - name: BOA_LEAGUE_TABLE
+      numOfPartitions: 16
+      replicationFactor: 2
+      useUnderscore: true

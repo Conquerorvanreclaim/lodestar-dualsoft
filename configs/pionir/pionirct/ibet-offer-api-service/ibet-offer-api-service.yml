@@ -1,0 +1,25 @@
+database:
+  client-id: ibet-offer-api-service
+  program: IBet offer api service
+  terminal: ibet-offer-api-service
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+iBetOfferMaxTotalConnections: 20
+iBetOfferMaxConnectionPerRoute: 20
+
+# potrebno da postoji
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+  api-docs:
+    path: /api-docs
+    enabled: true
+
+ibet-offer-api-service:
+  openapi:
+    url: https://localhost:8080
+  api:
+    key: 4bfd8019-c478-4ffd-b7d7-44d822e243b1

@@ -1,0 +1,45 @@
+kafka:
+  client-id:
+    group-notification-stream-mk-1
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+cassandra:
+  cluster_name: ibet-max-cassandra-cluster
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  result_change:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+
+spring:
+  application:
+    name: group-notification-stream
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+
+firebase:
+  v1Api:
+    enabled: true

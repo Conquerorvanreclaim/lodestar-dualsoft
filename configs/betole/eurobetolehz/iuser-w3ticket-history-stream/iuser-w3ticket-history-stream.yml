@@ -1,0 +1,7 @@
+kafka:
+  client-id:
+    hz
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2

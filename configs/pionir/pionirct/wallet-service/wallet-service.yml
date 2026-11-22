@@ -1,0 +1,279 @@
+database:
+  client-id: WALLETSERVICE
+  program: Wallet-service
+  terminal: Wallet-service
+  min-idle: 10
+  max-idle: 10
+  max-active: 10
+
+redis:
+  databaseNumber: 1
+  betDataReadTimeoutSeconds: 3
+
+session:
+  use:
+    redis: true
+  minutes:
+    timeToLive: 720
+
+kafka-admin:
+    enabled: true
+    replicationFactor: 2
+    numOfPartitions: 8
+    
+server:
+  tomcat:
+    max-threads: 200
+
+usePackages: false
+    
+wallet:
+  async_channel_capacity: 20000
+  async_channel_request_timeout: 200
+  poller_fixed_delay: 50
+  poller_receive_timeout: 100
+  delayer_delay: 500
+  thread_pool: 4
+  queue_capacity: 200
+  request_timeout: 10000
+  messages_per_poll: -1
+
+  egt_digital_module:
+    async_channel_capacity: 20000
+    async_channel_request_timeout: 200
+    poller_fixed_delay: 50
+    poller_receive_timeout: 100
+    delayer_delay: 500
+    thread_pool: 8
+    queue_capacity: 200
+    request_timeout: 10000
+    messages_per_poll: -1
+    auth_token_ttl: 60
+    game_session:
+      minutes:
+        timeToLive: 180
+    
+
+
+  beefee:
+    service:
+      name: 
+      number: 
+    
+swagger:
+  enabled: false
+
+jasystem:
+  agent: 
+  token: 
+  agentAccountCode: 
+    
+walletDeposit:
+  agent: 
+  agentAccountCode: 
+  token: 
+
+gameArt_wallet:
+  filePathForExcel: src/main/resources/GameListGameArt.csv
+  allGamesUrl: https://stage.game-program.com/api/seamless/provider
+
+
+gameslot_wallet:
+  partner_id:
+
+beefee:
+  operatorUrl: 
+  xApiKey: 
+
+ackrila:
+  agent: 
+  provider:
+    id: 
+    username: 
+    password:
+
+liw:
+  nameKeyMap: '{"merkur":"392ab735-e6a3-4877-aed7-01079641f426"}'
+  gameId: liw
+
+airtel:
+    agentUsername: 
+    account: 
+    interfaceId: 
+    MSISDN: 
+    urlWithParams: 
+    username: 
+    password: 
+    memo: 
+    message: 
+
+mtn:
+   agentUsername: 
+   account: 
+   withdrawalMobileNetworkOperator: 
+   depositMobileNetworkOperator: 
+   baseUrl: 
+   apiKey: 
+
+mtnMoMo:
+   agent: 
+   account: 
+   callbackUrl:
+   apiUrl: 
+   productionMode: false
+   depositPrimaryKey: 
+   withdrawalPrimaryKey: 
+   #productionDepositApiKey:
+   #productionDepositApiUser:
+   #productionWithdrawalApiKey:
+   #productionWithdrawalApiUser:
+   targetEnvironment: 
+
+evoplay:
+    project_id: 
+    version: 
+
+argo:
+    signingKey1: dHphajdPalk4RnpsbUpxWDlmYlJmemFGUnBvSnAxRGltaWFLblJsNGtBSkV5WUd2NHNCWFEyY1lvd29JT0tvVw==
+    signingKey2: Z1NBSHZyTXlaekNQZXZnaDViZm5MMzVaZ3R5a0NOYlhmVnIxanJqODd3dlpvYjltVWNIY0lTRkhhZW9lWmhheA==
+    
+smartpos:
+    shops: '{"k1":"v1"}'
+    
+pinpoker:
+    client: 1
+    defaultCountry: RS
+    
+setUserCodeInTRResponse: true
+getEGameTransactionsForUserUuid: true
+
+prefixNumber: 260
+airtelV2:
+  apiUrl: 
+  clientId: 
+  clientSecret: 
+  agent: 
+  account: 
+  pin: 
+  publicKey: 
+  reference: 
+
+
+safaricom:
+  initiatorName: 
+  initiatorPassword: 
+  timeoutUrl: 
+  shortcode: 
+  withdrawalCallbackUrl: 
+  securityCred:
+  generateTokenUrl: 
+  withdrawalUrl: 
+  consumerKey: 
+  consumerSecret: 
+  agent: 
+  account: 
+  depositSafaricomRequestUrl: 
+  depositCallbackUrl: 
+  passKey: 
+  pathToCert: /etc/certs/safaricom.cer
+  reference: 
+
+oddin:
+  securityKey: h7q+(&bv#ZX6AsjB
+  useCodeAsNickname: true
+
+slotegrator:
+  merchantKeyToken: 
+
+endorphina:
+  secretKeyToken: wallet.merkurtip.rs:CC8535CD37A544E4BACF44EC61A5E9EE#
+
+galaxsys:
+  useCompositeCredentials: false
+  operatorId: DFC70F64
+  saltCode: 
+
+airtelPaymentV2:
+  agentUsername: airtel
+  account: AIRTEL
+  token:
+    secret: 
+    issuer: 
+    subject: 
+
+synotInteractive:
+  apiKey: merkurxtiprs-prod
+  enable:
+    authorizationToken:
+      endpoint: false
+
+
+ezugi:
+  checkGameBeforeDebit: true
+
+tizi:
+  token:
+    secret: 
+    issuer: 
+    durationMin: 43200 
+    #30 dana
+
+egtDigital:
+  enableEndpoint:
+    defence-code: false
+
+tcash:
+  secret: 
+  dsccy: eur
+  maxStornoTimeLimitMin: 5
+vcash:
+  secret: 4d677d7d62ae82e361a956fcd526ca49394313cba899573508fde988013faa54
+  dsccy: din
+  maxStornoTimeLimitMin: 60
+
+portir:
+  secret: 
+
+goldenRace:
+  compositeSaltCode: 
+
+fantasy:
+  secretKey: 
+
+greentube:
+  NRGSSecretApiKey: 
+  publicApiKey: 
+  authVersion: 
+
+withdrawal_reqeust_for_bank_account_time_constraint_in_hours: 12
+
+globalbet:
+  systemId: 
+  systemPassword: 
+  instances: 
+  root:
+    username: 
+    password: 
+
+kerobet:
+  publicKeyPath:
+  privateKeyPath:
+  partnerName:
+
+synot:
+  sendPlayerName: false
+
+simulate:
+  gameId: 
+
+apollo:
+  games:
+    token:
+      expire:
+        time:
+          seconds: 120
+
+playngo:
+  verificationCodeTTL:360
+
+reconciliation_api_token: tapofU0UoghLf2Jv5ilfC5AFFDGAqrWATVzbSKN7EDg

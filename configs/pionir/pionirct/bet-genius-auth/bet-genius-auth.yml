@@ -1,0 +1,46 @@
+database:
+  client-id: bet-genius-auth
+  program: BetGenius auth
+  terminal: bet-genius-auth
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+kafka:
+  clientId:
+    suffix: pionirct
+  topics:
+    ticketAuth: ${kafka.topics.prefix}_CDC_QB_TICKET_AUTH
+
+auth:
+  bookmaker: betgeniusauth
+  password: betgeniusauth
+  bet-engine-url: https://app.merkurtip.rs:8383/bet-engine/
+
+
+token:
+  url: https://merkurxtip-%s-rm.auth.eu-west-1.amazoncognito.com/oauth2/token/
+  environment: production
+
+
+ably:
+  api-key: R6_I9A.qJbODQ:YoGdEv_kRNvTgl4OPUoTUt03MRDeIhXIbOND7acsxsI
+  environment: geniussports
+  fallback-hosts:
+    - geniussports-a-fallback.ably-realtime.com
+    - geniussports-b-fallback.ably-realtime.com
+    - geniussports-c-fallback.ably-realtime.com
+    - geniussports-d-fallback.ably-realtime.com
+    - geniussports-e-fallback.ably-realtime.com
+  channels:
+    - merkurxtip:0
+    - merkurxtip:1
+    - merkurxtip:2
+    - merkurxtip:3
+    - merkurxtip:4
+    - merkurxtip:5
+    - merkurxtip:6
+    - merkurxtip:7
+    - merkurxtip:8
+    - merkurxtip:9
+  enabled: true

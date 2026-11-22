@@ -1,0 +1,11 @@
+kafka:
+  client-id:
+    vegashz
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 2 
+
+
+
+

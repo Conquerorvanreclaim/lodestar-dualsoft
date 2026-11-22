@@ -1,0 +1,17 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra-sbb@oktagonbet.rs
+ to: betsrv@dualsoft.net
+
+
+kafka:
+  
+  clientId:
+   suffix: oktasbb
+  instances:
+
+ttlInDaysForMonthHistoryTables: 31

@@ -1,0 +1,23 @@
+elasticsearch:
+    index:
+      prefix:
+    ticket:   
+        delete:
+            days: 31
+            cron: 0 0 4 * * *
+    prepayment:
+        delete:
+            days: 365
+            isDeletionOn: false
+            cron: 0 30 3 * * *
+
+kafka:
+    clientId:
+        suffix: pionir-ct
+    replicationFactor: 2
+    standbyReplicas: 0
+
+database:
+    client-id: ticket_to_es_stream
+    program: ticket_to_es_stream
+    terminal: ticket_to_es_stream

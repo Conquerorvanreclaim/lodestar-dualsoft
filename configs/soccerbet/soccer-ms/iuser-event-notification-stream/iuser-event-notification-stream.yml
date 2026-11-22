@@ -1,0 +1,38 @@
+kafka:
+  client-id:
+    iuser-event-notification-stream-soccer-ms
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 16
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: IUSER_NOTIFICATIONS
+          numOfPartitions: 16
+          replicationFactor: 2
+          retentionMs: 259200000
+          useUnderscore: true
+
+# This should be true only for kilibet and bolabet | stream for reading sms tickets and sending notifications
+startTicketNotificationStream: false
+# This should be true only for kilibet
+africa:
+    talking:
+        enable_ticket_win_sms: false          
+
+cassandra:
+  notification:
+    ic:
+      ttl:
+        seconds: 1500
+    qb:
+      ttl:
+        seconds: 1500 
+
+terminateIcUserSessionsOnSelfExclude: true
+
+

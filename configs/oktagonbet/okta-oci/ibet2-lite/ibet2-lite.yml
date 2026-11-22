@@ -1,0 +1,100 @@
+# ===== Tomcat config  ============
+server:    
+    servlet:
+        context-path: /lite
+    #port: 8014
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false 
+spring:
+    freemarker:
+        template-loader-path: classpath:/oDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+
+redis:
+    database_number: 0
+
+instance: oktatest
+translation_instance_code: oktagon
+aditional_instance_codes_for_login: 
+task_name: oktatest
+book: 8
+annex: 
+location_code: 1007
+in_hours_list: 1,3
+app_language: sr
+page:
+    limit: 25   
+remote:
+    ibet:
+        referer: https://test.oktagonbet.rs/bet
+        payin:
+            url: 
+        jackpot:
+            url: 
+            payin:
+        resetPassword:
+            url: 
+        resendCode:  
+            url: 
+        register:
+            firstStepUrl: 
+            secondStepUrl: 
+        changePassword:
+            url:
+        resetPasswordMaxbet:
+            url: https://test.oktagonbet.rs/ibet/resetPassword.json
+        gameDescription:
+            url: https://test.oktagonbet.rs/ibet/getAllOdBetPickGroups.json
+        recoveryPassword:
+            url: https://test.oktagonbet.com/ibet/resetPassword.json
+    
+
+africa:
+    talking:
+        username: 
+        api_key:     
+        codes:
+            place_bet: 
+            register:             
+
+
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+offer: 
+    scheduling:
+        job.cron: 0 * * * * *
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 15,45 * * * *"
+#offer.scheduling.job.cron=0 0 * ? * *
+
+#============ CASSANDRA ===================
+cassandra:
+    keyspace: oktagonbet
+    host: cs1-oci-kg1.dualsoft.bet,cs2-oci-kg1.dualsoft.bet,cs3-oci-kg1.dualsoft.bet
+    port: 9042
+
+#============ ELASTIC ======================
+elasticsearch:
+    clustername: OCI-OKTAPWIN
+    hosts: es1-oci-kg1.dualsoft.bet,es2-oci-kg1.dualsoft.bet,es3-oci-kg1.dualsoft.bet
+    port: 9200
+    protocol: http
+    username: 
+    password: 
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+
+ticket.viewer.password: okta1rs2ibet3
+ticket.viewer.username: oktarsibet
+ticket.viewer.url: https://app.oktagonbet.com:8383/ticket-viewer/

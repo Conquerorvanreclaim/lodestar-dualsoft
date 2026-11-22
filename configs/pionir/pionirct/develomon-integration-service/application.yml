@@ -1,0 +1,31 @@
+database:
+  program: ${spring.application.name}
+  terminal: ${spring.application.name}
+  client-id: ${spring.application.name}
+
+kafka:
+  application-id: ${spring.application.name}
+  stream-threads: 8
+  client-id:
+    suffix: pionir-ct
+
+application:
+  award-notification:
+    poll-interval: 10s
+
+external:
+  api:
+    base-url: https://igraj.statevozi.rs
+    api-key: 0eed52e4-cc69-496f-8516-12ada4c61fd3
+    basic-auth:
+      username: stage
+      password: test
+    request-logging: true
+
+security:
+  api-key: 94947f14-c617-4463-b409-75b4712314a6
+
+logging:
+  level:
+    root: info
+    net.dualsoft.services: trace

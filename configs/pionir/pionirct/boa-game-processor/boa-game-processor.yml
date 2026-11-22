@@ -1,0 +1,46 @@
+database:
+ username: pioboa
+ password: pioboa
+ type: oracle
+ driverClassName: oracle.jdbc.OracleDriver
+ url: jdbc:oracle:thin:@//db-ct-scan.pionir.io:1521/piodb1.pionir.io
+ client-id: boa-game-processor
+ program: boa-game-processor
+ terminal: boa-game-processor
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+
+kafka:
+  thread-numbers: 8
+  clientId:
+    suffix: local
+  pollTimeoutMs: 200
+  tolerableLagInSeconds: 3
+  maxPollRecords: 100
+  maxPollInterval: 300000
+
+logBoaBetMatchData: true
+emptyOddsWhenNoTemplate: false
+splitPlayersInSeparatedMatches: true
+#Ako je true ili prazno specijali/strelci/dueli idu u sport special_<maticni_sport>, a ako je false idu u matcni sport (ali u drugu ligu)
+useSpecialSportsForOutright: true
+#F1;Grand Prix#OR;#
+outrightToRegualConditions: 
+splitBonusMatches: false
+resolvePlayerStatusForSports: B#SK#
+oddsMultiplierToken: 
+tipTypeGroupsForBonusSoccer: 
+tipTypeGroupsForBonusBasketball: 
+tipTypeGroupsForBonusTennis: 
+tipBonusTipMapToken: 
+bonusTypesStartingHourOfDay: 8
+basBonusBetTagRule:
+resolveHockeyAsBasketball: false
+useCanceledInsteadOfAbandoned: true
+#pojavila se potreba da za neke sportove postoje posebni mecevi (kao strelci) ali da ne idu u spec.sport. Ovde je spisak sportova za koji to treba da prodje. Prakticno, ovaj prop dopusta pravljenje posebnih meceva za strelce iako je useSpecialSportsForOutright podeseno na true a ne postoji spec.sport za osnovni sport 
+overrideSpecialSportsForOutright: WS#F1#M#
+
+useStatusCheckForOddsChange : false
+basUrl: https://app.merkurtip.rs:8383/bet-admin-service/rest/
+lockUnsentMatchBetsIfDelta: true

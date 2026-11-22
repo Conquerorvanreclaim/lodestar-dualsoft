@@ -1,0 +1,151 @@
+sitemap:
+    client: soccer
+    host: "https://www.soccerbet.me"
+    deafult:
+        lang: sr_ME
+
+book: 10
+annex: 0
+location_code: 10000
+in_hours_list: 1,3
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 0/30 * * * *"
+redis:
+    database_number: 10
+translation_instance_code: soccerrs    
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+#Elastic
+match_search_result_size: 1500
+matches_in_next_hours: 24
+#============ Sitemap content - Start =============
+config:
+    sitemap_kategorije:
+        sr_ME:
+            - "https://www.soccerbet.me/sr_ME/kladjenje"
+            - "https://www.soccerbet.me/sr_ME/sportsko-kladjenje"
+            - "https://www.soccerbet.me/sr_ME/uzivo-kladjenje"
+            - "https://www.soccerbet.me/sr_ME/rezultati"
+            - "https://www.soccerbet.me/sr_ME/lobi-sve"
+            - "https://www.soccerbet.me/sr_ME/lobi/mne_live"
+            - "https://www.soccerbet.me/sr_ME/kazino/mne_slot"
+            - "https://www.soccerbet.me/sr_ME/lobi/mne_prov"
+            - "https://www.soccerbet.me/sr_ME/virtuelne-igre/mne_virt"
+            - "https://www.soccerbet.me/sr_ME/info/pravila-koriscenja"
+            - "https://www.soccerbet.me/sr_ME/info/info-o-nama"
+            - "https://www.soccerbet.me/sr_ME/info/info-poslovnice"
+            - "https://www.soccerbet.me/sr_ME/info/info-mec-specijal"
+            - "https://www.soccerbet.me/sr_ME/info/info-antepost"
+            - "https://www.soccerbet.me/sr_ME/info/info-iskljucene-teritorije"
+            - "https://www.soccerbet.me/sr_ME/info/promo"
+            - "https://www.soccerbet.me/sr_ME/info/info-odgovorno-kladjenje"
+            - "https://www.soccerbet.me/sr_ME/info/info-sportsko-kladjenje"
+            - "https://www.soccerbet.me/sr_ME/info/info-gambling-igre"
+            - "https://www.soccerbet.me/sr_ME/info/info-kontakt"
+            - "https://www.soccerbet.me/sr_ME/info/download"
+        # en:
+        #     - "https://www.soccerbet.me/en/results"
+        #     - "https://www.soccerbet.me/en/lobby-all"
+        #     - "https://www.soccerbet.me/en/live-gambling/srb_live"
+        #     - "https://www.soccerbet.me/en/gambling/srb_slot"
+        #     - "https://www.soccerbet.me/en/live-gambling/srb_prov"
+        #     - "https://www.soccerbet.me/en/virtuals/srb_virt"
+        #     - "https://www.soccerbet.me/en/info/promo"
+        #     - "https://www.soccerbet.me/en/info/info-o-nama"
+        #     - "https://www.soccerbet.me/en/info/info-poslovnice"
+        #     - "https://www.soccerbet.me/en/info/info-mec-specijal"
+        #     - "https://www.soccerbet.me/en/info/info-antepost"
+        #     - "https://www.soccerbet.me/en/info/info-iskljucene-teritorije"
+        #     - "https://www.soccerbet.me/en/info/promo"
+        #     - "https://www.soccerbet.me/en/info/info-odgovorno-kladjenje"
+        #     - "https://www.soccerbet.me/en/info/info-sportsko-kladjenje"
+        #     - "https://www.soccerbet.me/en/info/info-gambling-igre"
+        #     - "https://www.soccerbet.me/en/info/info-pomoc"
+        #     - "https://www.soccerbet.me/en/info/info-kontakt"
+        #     - "https://www.soccerbet.me/en/info/download"
+    sitemap:
+        prematch:
+            sport-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/matches/$sport-name/$sport-id"
+            group-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/matches/$sport-name/$sport-id/$group-name/$group-id"
+            league-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/matches/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+            sport-leagues:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/lige/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/leagues/$sport-name/$sport-id"
+            group-leagues:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/lige/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/leagues/$sport-name/$sport-id/$group-name/$group-id"  
+            match:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/ponuda/mec/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/offer/match/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+        players:
+            sport-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/matches/$sport-name/$sport-id"
+            group-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/matches/$sport-name/$sport-id/$group-name/$group-id"
+            league-matches:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/matches/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+            sport-leagues:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/lige/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/leagues/$sport-name/$sport-id"
+            group-leagues:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/lige/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/leagues/$sport-name/$sport-id/$group-name/$group-id"
+            match:
+                sr_ME: "https://www.soccerbet.me/sr_ME/sportsko-kladjenje/igraci/mec/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+                #en: "https://www.soccerbet.me/en/sport-betting/players/match/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+        league:
+            league:
+                sr_ME: "https://www.soccerbet.me/sr_ME/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/naredni"
+                #en: "https://www.soccerbet.me/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/upcoming"
+            prematch-match:
+                sr_ME: "https://www.soccerbet.me/sr_ME/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/naredni/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.me/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/upcoming/match/$match-name/$match-id"
+            players-match:
+                sr_ME: "https://www.soccerbet.me/sr_ME/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/igraci/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.me/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/players/match/$match-name/$match-id"
+            antepost-match:
+                sr_ME: "https://www.soccerbet.me/sr_ME/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/antepost/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.me/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/outrights/match/$match-name/$match-id"
+        casino:
+            game:
+                sr_ME: "https://www.soccerbet.me/sr_ME/igra/$provider/$game-id/$game-name"
+                #en: "https://www.soccerbet.me/en/game/$provider/$game-id/$game-name"
+#============ Sitemap content - End =============
+#============ Robots.txt content - Start =============
+robots:
+    content:
+        - "User-agent: *"
+        # - "Disallow: /"
+        - "Disallow: */prijava*"
+        - "Disallow: */registracija*"
+        - "Disallow: *sr_ME/kladjenje/omiljeno*"
+        - "Disallow: *sr_ME/kladjenje/pretraga*"
+        - "Disallow: *sr_ME/kladjenje/tiket*"
+        - "Disallow: *sr_ME/kladjenje/status-tiketa*"
+        - "Sitemap: https://www.soccerbet.me/sitemap/sitemap_index.xml"
+#============ Robots.txt content - End =============
+
+server: 
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false
+    servlet:
+        context-path: /sitemap 
+spring:
+    application:
+        name: ibet2-sitemap
+spring.main.allow-bean-definition-overriding: true

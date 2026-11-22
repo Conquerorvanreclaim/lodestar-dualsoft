@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Context displayName="Welcome to w3Bet"
+	workDir="work/Catalina/localhost/w3Bet"
+	cookies="true"
+	useNaming="true"
+	crossContext="true"
+	reloadable="true"
+	override="true"
+	parallelAnnotationScanning="true"
+	tldValidation="false"
+	antiResourceLocking="false"
+	useBloomFilterForArchives="true"
+	containerSciFilter="WsSci">
+
+	<Resources archiveIndexStrategy="bloom" />
+
+	<JarScanner>
+		<JarScanFilter
+			tldScan="${tomcat.util.scan.StandardJarScanFilter.jarsToScan},
+				spring-webmvc-*.jar, taglibs-standard-impl-*.jar,
+				tiles-jsp-*.jar"
+			tldSkip="${tomcat.util.scan.StandardJarScanFilter.jarsToSkip},
+				activation-*.jar, amqp-client-*.jar, antlr-*.jar,
+				aopalliance-*.jar, atik-awt-util-*.jar, avalon-*.jar,
+				ban2-*.jar, barbecue-*.jar, batik-*.jar, bet-*.jar,
+				byte-buddy-*.jar, cache-api-*.jar, camel-*.jar,
+				checker-qual-*.jar, common-model-*.jar, commons-net-*.jar,
+				core-*.jar, ds-util-*.jar, ehcache-*.jar, ercesImpl-*.jar,
+				fluent-hc-*.jar, fontbox-*.jar, fop-*.jar, fst-*.jar,
+				grizzly-*.jar, gson-*.jar, htmlcleaner-*.jar, httpcore-*.jar,
+				httpmime-*.jar, imq-*.jar, instana-java-sdk-*.jar, iuser-*.jar,
+				jackson-*.jar, jakarta.transaction-api-*.jar, java-jwt-*.jar,
+				javase-*.jar, javassist-*.jar, javax.annotation-api-*.jar,
+				jboss-marshalling-*.jar, jcl-over-slf4j-*.jar, jcommon-*.jar,
+				jdom2-*.jar, jfreechart-*.jar, jms-*.jar, jniPrint-*.jar,
+				jodd-*.jar, jooq-*.jar, jpos-*.jar, json-*.jar, jstl-*.jar,
+				kryo-*.jar, lettuce-core-*.jar, logstash-gelf-*.jar,
+				minlog-*.jar, mvel2-*.jar, netty-*.jar, ojdbc7-*.jar,
+				ojdbc8-*.jar, org.apache.servicemix.bundles.gentlyweb-utils-*.jar,
+				org.apache.servicemix.bundles.josql-*.jar, params-model-*.jar,
+				payin-model-*.jar, poi-*.jar, postgresql-*.jar,
+				printer-service-*.jar, qbet-common-*.jar, qrgen-*.jar,
+				reactive-streams-*.jar, reactor-core-*.jar, redisson-*.jar,
+				reflectasm-*.jar, riskman-client-*.jar, rxjava-*.jar,
+				snakeyaml-*.jar, spring-aop-*.jar, spring-beans-*.jar,
+				spring-boot-*.jar, spring-context-*.jar, spring-core-*.jar,
+				spring-expression-*.jar, spring-integration-*.jar,
+				spring-jdbc-*.jar, spring-jms-*.jar, spring-orm-*.jar,
+				spring-oxm-*.jar, spring-retry-*.jar, spring-security-*.jar,
+				spring-tx-*.jar, spring-web-*.jar, swagger-annotations-*.jar,
+				tiles-api-*.jar, tiles-core-*.jar, tiles-servlet-*.jar,
+				tomcat-9-dualsoft-auth-*.jar, tomcat-tracking-*.jar,
+				wallet-proxy-*.jar, xalan-*.jar, xercesImpl-*.jar,
+				xml-apis-*.jar, xmlgraphics-commons-*.jar, xz-*.jar" />
+	</JarScanner>
+
+	<!-- ###  SETTINGS FOR REDISSON SESSION MANAGER ### -->
+	<Manager className="org.redisson.tomcat.RedissonSessionManager"
+		configPath="${catalina.base}/conf/redisson.conf.yml"
+		readMode="MEMORY"
+		updateMode="DEFAULT"
+		broadcastSessionEvents="false"
+		keyPrefix="w3bet" />
+
+	<!-- ### SETTINGS FOR CONTEXT LOGGER ### -->
+	<!-- ###    logging settings are now in    ############# -->
+	<!-- ###    {$CATALINA_HOME}/conf/loggers.properties ### -->
+	<!-- tell the application about the above Logger settings -->
+	<!-- the application can not access these settings directly... -->
+	<Parameter name="log_directory" value="logs" />
+	<Parameter name="log_prefix" value="localhost." />
+	<Parameter name="log_suffix" value=".log" />
+	<Parameter name="catalina_log_prefix" value="catalina." />
+	<Parameter name="catalina_log_suffix" value=".log" />
+
+	<!-- ### SETTINGS FOR CONTEXT AUTHENTICATION ### -->
+	<Valve className="com.dualsoft.authenticator.DualsoftFormAuthenticator9"
+		usePlainTextForHub="true"
+		characterEncoding="utf-8" />
+
+	<!-- ### SETTINGS FOR CONTEXT ACCESSLOGVALVE ### -->
+	<Valve className="org.apache.catalina.valves.AccessLogValve"
+		directory="logs"
+		prefix="w3Bet_access_log."
+		suffix=".txt"
+		pattern="%a %l %u %t &quot;%r&quot; %s %b %D %{X-Forwarded-For}i %{Host}i"
+		fileDateFormat="yyyy-MM-dd"
+		rotatable="true" />
+
+	<!-- tell the application about the above AccessLogValve settings (copy/paste from above) -->
+	<Parameter name="access_log_directory" value="logs" />
+	<Parameter name="access_log_prefix" value="w3Bet_access_log" />
+	<Parameter name="access_log_suffix" value=".txt" />
+	<Parameter name="access_log_pattern" value="%a %l %u %t &quot;%r&quot; %s %b %D %{X-Forwarded-For}i %{Host}" />
+
+	<!-- ### settings for INSTANCE_CODE, various pages  ### -->
+	<Parameter name="instanceCode" value="landmerkurrs" />
+
+	<!-- ### begin settings for external UPLOAD ### -->
+	<!-- iskljucio sam ovaj param, markohm, 14.01.2016
+	     	<Parameter
+		name="external_upload_http"
+		value="http://78.46.105.16/~max/files4.php?token=agLasC9V5w9tXANZJ"
+	    	override="false" />
+	-->
+
+	<!-- ### settings for BET-ADMIN-WS ### -->
+	<Parameter name="bet_admin_ws_url" value="http://bet-admin-service:8080/bet-admin-service/rest" />
+
+	<!-- ### settings for IUSER-HUB ### -->
+	<Parameter name="iuser_hub_enabled" value="true" />
+	<Parameter name="iuser_hub_url" value="http://iuser-hub:8080/iuser-hub" />
+
+	<!-- ### SETTINGS FOR JNDI DataSource REALM ### -->
+	<!-- where epasswd digest takes place: Javascript -> true, CredentialHandler -> false -->
+	<Parameter name="useEpasswd" value="false" />
+	<Realm dataSourceName="jdbc/BetDB"
+			className="org.apache.catalina.realm.DataSourceRealm"
+			localDataSource="true"
+			roleNameCol="web_role"
+			userCredCol="e_passwd"
+			userNameCol="user_name"
+			userRoleTable="co_user_web_role"
+			userTable="co_user">
+			<!-- auth valve handles digest process (usePlainTextForHub), no algorithm specified here. -->
+			<CredentialHandler className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+				encoding="utf8"
+				iterations="1"
+				saltLength="0" />
+	</Realm>
+
+	<!-- ### SETTINGS FOR REDIS ### -->
+	<Environment type="java.lang.String" name="redis.hosts" value="${redis.hosts}" />
+	<Environment type="java.lang.String" name="redis.enabled" value="${redis.enabled}" />
+	<Environment type="java.lang.String" name="redis.password" value="${redis.password}" />
+	<Environment type="java.lang.String" name="redis.databaseNumber" value="${redis.databaseNumber}" />
+	<Environment type="java.lang.String" name="redis.sentinelMasterId" value="${redis.sentinelMasterId}" />
+	<Environment type="java.lang.String" name="redis.useSentinel" value="${redis.useSentinel}" />
+	<Environment type="java.lang.String" name="redis.betDataDatabaseNumber"	value="${redis.betDataDatabaseNumber}" />
+	<Environment type="java.lang.String" name="redis.betDataReadTimeoutSeconds" value="${redis.betDataReadTimeoutSeconds}" />
+	<Environment type="java.lang.String" name="redis.betDataBetsReadTimeoutSeconds" value="${redis.betDataBetsReadTimeoutSeconds}" />
+	<Environment type="java.lang.String" name="redis.prematchToLiveBetsEvictSeconds" value="${redis.prematchToLiveBetsEvictSeconds}" />
+	<Environment type="java.lang.String" name="redis.sendPrintDocuments" value="${redis.sendPrintDocuments}" />
+	<Environment type="java.lang.String" name="redis.useSsl" value="${redis.useSsl}" />
+	<Environment type="java.lang.String" name="redis.sslVerifyPeer" value="${redis.sslVerifyPeer}" />
+	<Environment type="java.lang.String" name="redis.betsCacheUseHScan" value="true" />
+	<Environment type="java.lang.String" name="redis.betsCacheHScanBatchLimit" value="2500" />
+	<Environment type="java.lang.String" name="redis.readBetData" value="true" />
+
+	<!-- ### SETTINGS FOR KAFKA ### -->
+	<Environment type="java.lang.String" name="skipMatchLiveSessionCheck" value="true" />
+
+	<!-- ### settings for adminEnabled ### -->
+	<Environment type="java.lang.String" name="adminEnabled" value="true" />
+
+	<!-- ### settings for PAZAR ### -->
+	<Parameter name="useJooqForTurnover" value="true" />
+
+	<!-- ### settings for iBet Balance Subtype [BETTING|BONUSES|DEPOSITS|WALLET]  ### -->
+	<Parameter name="useJooqForBalanceSubtypes" value="true" />
+
+	<!-- ### settings for LOCATIONS, show unpaid tickets from previous rounds  ### -->
+	<Parameter name="useUnpaidTicketsHintAtLocations" value="true" />
+
+	<!-- ### settings for CSV download, various pages  ### -->
+	<Parameter name="enableDownloadCsv" value="true" />
+
+	<!-- ###  SETTINGS FOR TOMCAT HCCP POOL ### -->
+	<!-- ukljuceno, markohm, 5.10.2018-->
+    <Environment type="java.lang.String" name="hibernate/dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+    <Environment type="java.lang.String" name="org/jooq/SQLDialect" value="ORACLE" />
+	<Resource name="jdbc/BetDB"
+		type="javax.sql.DataSource"
+		auth="Container"
+			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+			driverClassName="oracle.jdbc.OracleDriver"
+			url="${database.url}"
+			username="${database.username}"
+			password="${database.password}"
+			connectionProperties="defaultRowPrefetch=1000;oracle.jdbc.defaultLobPrefetchSize=8000;oracle.net.networkCompression=on;oracle.jdbc.implicitStatementCacheSize=200;"
+			initialSize="3"
+			maxActive="24"
+			maxIdle="6"
+			minIdle="3"
+			maxWait="10000"
+			testOnBorrow="true"
+			testWhileIdle="true"
+			validationQuery="SELECT COUNT(*) FROM CO_USER"
+			logAbandoned="true"
+			removeAbandoned="true"
+			removeAbandonedTimeout="120"
+			minEvictableIdleTimeMillis="1800000"
+			timeBetweenEvictionRunsMillis="900000"
+			jdbcInterceptors="StatementCache(prepared=true,callable=true,max=500);ConnectionState"
+			accessToUnderlyingConnectionAllowed="true"
+			useStatementFacade="false"
+			defaultAutoCommit="true" />
+
+	<!-- ### LINK TO >>>PUBLIC<<< COMMONS POOL ### -->
+	<ResourceLink name="jdbc/PublicDB"
+			global="jdbc/GlobalPublicDB"
+			type="javax.sql.DataSource" />
+
+	<!-- ### SETTINGS FOR >>>INTERNAL<<< COMMONS POOL ### -->
+    <Resource name="jdbc/InternalDB"
+		type="javax.sql.DataSource"
+		auth="Container"
+			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+			url="jdbc:h2:tcp://127.0.0.1:8043/./h2/w3bet"
+			username="sa"
+			password=""
+			initialSize="0"
+			maxActive="16"
+			maxIdle="3"
+			minIdle="1"
+			maxWait="5000"
+			driverClassName="org.h2.Driver"
+			testOnBorrow="true"
+			validationQuery="SELECT 1"
+			logAbandoned="false"
+			removeAbandoned="true"
+			removeAbandonedTimeout="30"
+			poolPreparedStatements="false"
+			timeBetweenEvictionRunsMillis="900000"
+			useStatementFacade="false" />
+
+	<!-- ### SETTINGS FOR >>>SHARED<<< WURFL instance ### -->
+	<ResourceLink name="wurfl/SharedWURFL"
+			global="wurfl/SharedWURFL"
+			type="net.sourceforge.wurfl.wurflapi.ObjectsManager" />
+
+</Context>
+

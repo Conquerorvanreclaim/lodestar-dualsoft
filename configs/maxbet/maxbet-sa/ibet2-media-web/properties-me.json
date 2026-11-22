@@ -1,0 +1,11 @@
+{
+  "context": "ibet",
+  "restapiContext": "restapi",
+  "version": "${IBET2_MEDIA_WEB_APPS_VERSION}",
+  "instanaScriptId": "t-nA9UKCTeu3H02z9zPKvg",
+  "lmtUrl":"https://widgets.sir.sportradar.com/f53ca1c39f829aca6b574381bf9bc213/widgetloader",
+  "ibet2wssAppUrl":"https://www.maxbet.me",
+  "ibet2liveAppUrl":"https://www.maxbet.me",
+  "lmtSports":"S,T,B,H",
+  "sportsWithMixedOffer": "B"
+}

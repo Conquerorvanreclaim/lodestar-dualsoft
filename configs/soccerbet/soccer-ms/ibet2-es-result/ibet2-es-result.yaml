@@ -1,0 +1,4 @@
+redis:
+    databaseNumber: 10
+
+book: 10

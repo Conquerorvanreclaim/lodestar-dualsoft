@@ -1,0 +1,7 @@
+kafka:
+  client-id:
+    iuser-w3ticket-history-stream-sa
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2

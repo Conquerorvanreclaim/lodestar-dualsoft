@@ -1,0 +1,29 @@
+{
+   "instanceCode":"brsonline",
+   "translateInstanceCode":"betole",
+   "minVersion":"22.25.8",
+   "minAndroidVersion":"22.25.8",
+   "currentVersion":"22.25.8",
+   "design":"l",
+   "luckySixIFrameResizerUrl":"https://assets.nsoft-cdn.com/public/cdn/iframe-resizer/3.4.0/script.js",
+   "context":"ibet2",
+   "context_ibet2":"restapi",
+   "version":"${IBET2_MDC_APPS_VERSION}",
+   "dataCompressEnabled":"true",
+   "instanaTagId": "UJp4-bhvTGOUA8Bq8V2i_Q",
+   "egtRedirectToMobileUrl": "https://www.betole.ba/casino-lobby/game-demo",
+   "sportradarTagsId": "STM-AAAAVZ",
+   "sportradarTagsEvents": "track.betting.betPlaced,casino.betslip,betting.betslip",
+   "responsiveThreshold": 1270,
+   "externalCasinoImagesURL":"https://image.betole.com/b1/",
+   "applicationTypeOverrider": {
+      "icParams": null,
+      "toolbar": null,
+      "images": null,
+      "lobby": null,
+      "betPage": null,
+      "face": "MOBILE"
+   },
+   "egtDigitalJackpotInstancesNames": "Bell Link@Clover Chance@High Cash",
+   "egyptQuestLinkAmusnetUrl": "https://betoleba.games.amusnet.io/jackpot-stats/statistics/679604071957523153"
+}

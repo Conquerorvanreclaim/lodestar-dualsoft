@@ -1,0 +1,16 @@
+database:
+  client-id: iuser-cashback-collector
+  program: iuser-cashback-collector
+  terminal: iuser-cashback-collector
+
+kafka:
+  clientId:
+    suffix: pionir-ct
+  window-duration-minutes: 30
+  window-grace-minutes: 10
+  store-retention-minutes: 60
+
+server:
+  servlet:
+    context-path: /iuser-cashback-collector
+

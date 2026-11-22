@@ -1,0 +1,104 @@
+# ===== Tomcat config  ============
+server:
+    servlet:
+       context-path: /lite
+    #port: 8014
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false
+spring:
+    freemarker:
+        template-loader-path: classpath:/bDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+redis:
+    session:
+        database: 7
+        pool:
+            maxTotal: 800
+            maxIdle: 400
+    database_number: 0
+
+instance: maxrs
+translation_instance_code: maxrs
+aditional_instance_codes_for_login:
+task_name: maxrs
+book: 1
+annex: 0
+location_code: 40399
+in_hours_list: 1,3
+app_language: sr
+spinePay.apiUrl :
+page:
+    limit: 25
+remote:
+    ibet:
+        referer: https://www.maxbet.rs/bet
+        payin:
+            url:
+        jackpot:
+            url:
+            payin:
+        resetPassword:
+            url:
+        resendCode:
+            url:
+        register:
+            firstStepUrl:
+            secondStepUrl:
+        changePassword:
+            url:
+        setPassword:
+            url: https://www.maxbet.rs/ibet/user/setActivationPassword.json
+        recoveryPassword:
+            url: https://www.maxbet.rs/ibet/resetPassword.json
+        gameDescription:
+            url: https://www.maxbet.rs/ibet/getAllOdBetPickGroups.json
+        telenor:
+            forwardToken:
+                url: http://ibet-s4:8080/ibet/telenor/register/data.json
+            register:
+                url: http://ibet-s4:8080/ibet/register.json
+            returnUrl: https://www.maxbet.rs
+            termsUrl: https://app.maxbetdownload.net/terms_sr.php?lang=sr
+            privacyUrl: https://app.maxbetdownload.net/privacy_sr.php?lang=sr
+
+
+africa:
+    talking:
+        username:
+        api_key:
+
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+offer:
+    scheduling:
+        job.cron: 0 * * * * *
+
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 15,45 * * * *"
+
+#============ ELASTIC ======================
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+elasticsearch:
+    protocol: http
+
+
+ticket:
+    viewer:
+        password: xxrroqw
+        username: liveibetrs
+        url: http://ticket-viewer.ps:8080/ticket-viewer/
+
+allSecure:
+    redirectUrl: https://www.maxbet.rs/sr/uplata/all-secure

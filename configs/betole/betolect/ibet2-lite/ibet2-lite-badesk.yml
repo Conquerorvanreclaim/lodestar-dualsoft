@@ -1,0 +1,102 @@
+# ===== Tomcat config  ============
+server:
+    #port: 8014
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false 
+    servlet:
+        context-path: /lite
+
+spring:
+    freemarker:
+        template-loader-path: classpath:/boDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+    
+
+instance: betoleba
+translation_instance_code: betole
+aditional_instance_codes_for_login: 
+book: 7
+annex: 0
+location_code: 10
+in_hours_list: 1,3
+app_language: sr
+page:
+    limit: 25
+remote:
+    ibet:
+        referer: https://www.betole.ba/bet
+        payin:
+            url: 
+        jackpot:
+            url: 
+            payin:
+        resetPassword:
+            url: 
+        resendCode:  
+            url: 
+        register:
+            firstStepUrl: 
+            secondStepUrl: 
+        changePassword:
+            url:
+        recoveryPassword:
+            url: https://www.betole.ba/ibet/resetPassword.json
+        gameDescription:
+            url: https://www.betole.ba/ibet/getAllOdBetPickGroups.json
+        setPassword:
+            url: https://www.betole.ba/ibet/user/setActivationPassword.json
+        express:
+            ticket:
+                url: https://www.betole.ba/ibet/ticket/getTranslatedXTicketByUuid.json
+        requestDeposit:
+            url: https://www.betole.ba/ibet/asoft/checkRequest.json
+            secretKey: c2KlZGh2319Fjhxq3
+    
+africa:
+    talking:
+        username:
+        api_key:
+
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+offer: 
+    scheduling:
+        job.cron: 0 * * * * *
+        
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 15,45 * * * *"
+
+#============ ELASTIC ======================
+elasticsearch:
+    clustername: DS-CT
+    host: kc1-ct-new.dualsoft.io,kc2-ct-new.dualsoft.io,kc3-ct-new.dualsoft.io
+    port: 9200
+    protocol: http
+    username: 
+    password:
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+
+#============ REDIS =========================
+redis:
+    session:
+        hosts: kc1-ct-new.dualsoft.io:26379,kc2-ct-new.dualsoft.io:26379,kc3-ct-new.dualsoft.io:26379
+        password: OxOVB8DmXkRqGUM0w7wLIg
+        database: 10
+        sentinelMasterId: dsct_master
+        useSentinel: true
+        pool:
+            maxTotal: 800
+            maxIdle: 400
+    database_number: 4

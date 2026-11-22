@@ -1,0 +1,16 @@
+database:
+  client-id: wallet-proxy
+  program: wallet-proxy
+  terminal: wallet-proxy
+
+luckyks:
+  maxConnections: 10
+
+oryx:
+  maxConnections: 10
+
+easit:
+  maxConnections: 10
+  logRequestPayload: true
+  enableCompressionForRoutes: >
+   /resolvedTicketDetail

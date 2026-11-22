@@ -1,0 +1,89 @@
+# ===== Tomcat config  ============
+server:    
+    servlet:
+       context-path: /lite
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false 
+spring:
+    freemarker:
+        template-loader-path: classpath:/bDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+redis:
+    session:
+        hosts: bn3.maxbet.rs:6779
+        password: imaxredis
+        database: 0
+        pool:
+            maxTotal: 800
+            maxIdle: 400   
+        
+instance: maxba
+translation_instance_code: maxrs
+aditional_instance_codes_for_login: 
+task_name: maxba
+book: 1
+annex: 0
+location_code: 40924
+in_hours_list: 1,3
+app_language: ba
+page:
+    limit: 25
+remote:
+    ibet:
+        referer: https://www.maxbet.ba/bet
+        payin:
+            url: 
+        jackpot:
+            url: 
+            payin:
+        resetPassword:
+            url: 
+        setPassword:
+            url: https://www.maxbet.ba/ibet/user/setActivationPassword.json
+        resendCode:  
+            url: 
+        register:
+            firstStepUrl: 
+            secondStepUrl: 
+        changePassword:
+            url:
+        recoveryPassword:
+            url: https://www.maxbet.ba/ibet/resetPassword.json
+        gameDescription:
+            url: https://www.maxbet.ba/ibet/getAllOdBetPickGroups.json
+        requestDeposit:
+            url: https://www.maxbet.ba/ibet/asoft/checkRequest.json
+            secretKey: c2KlZGh2319Fjhxq3
+
+    
+africa:
+    talking:
+        username:
+        api_key:
+
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+offer: 
+    scheduling:
+        job.cron: 0 * * * * *
+        
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 15,45 * * * *"
+
+#============ ELASTIC ======================
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+elasticsearch:
+    protocol: http
+

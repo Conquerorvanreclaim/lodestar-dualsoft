@@ -1,0 +1,56 @@
+database:
+ username: pioboa
+ password: pioboa
+ type: oracle
+ url: jdbc:oracle:thin:@//db-ct-scan.pionir.io:1521/piodb1.pionir.io
+ client-id: cd2
+ program: CD2 Mine Boa service
+ terminal: cd2ora
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+ driver-class-name: oracle.jdbc.OracleDriver
+
+kafka:
+  clientId:
+    prefix: PIONIR_BOA
+    suffix: boa
+
+email:
+ from: cd2-oracle-mine-s1-boa@pionir.io
+
+lagToleranceMs: 300000
+
+cdcs:
+ groups:  
+  - groupName: master
+    exchangeName: BOA_MASTER_EX
+    tables:    
+    - name: BOA_COMPETITOR
+    - name: BOA_LEAGUE
+    - name: BOA_MATCH
+
+queue:
+ name: CD2$_TRANSACTION_QUE
+ #vreme koje se ceka nakon izvrsenja taksa (u ms)
+ fixedDelay: 2
+ #array_size parametar za dequeue
+ numberOfMessagesFetched: 100
+ #dequeue_options.wait parametar (0 = NO_WAIT)
+ waitOptionsValue: 0
+
+ 
+kafka-admin:
+  enabled: true
+  topics:
+    - name: CDC_TRANSACTIONS_EX
+      numOfPartitions: 8
+      replicationFactor: 2
+      retentionMs: 86400000
+      maxMessageBytes: 50000000
+      useUnderscore: true
+    - name: CDC_ROW_IDS_EX
+      numOfPartitions: 16
+      replicationFactor: 2
+      maxMessageBytes: 50000000
+      useUnderscore: true

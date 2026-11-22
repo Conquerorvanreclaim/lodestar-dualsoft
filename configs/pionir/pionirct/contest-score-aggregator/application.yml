@@ -1,0 +1,24 @@
+database:
+  program: ${spring.application.name}
+  terminal: ${spring.application.name}
+  client-id: ${spring.application.name}
+
+kafka:
+  application-id: ${spring.application.name}
+  stream-threads: 8
+  client-id:
+    suffix: pionir-ct
+
+application:
+  award:
+    poll-interval: 15s
+    delay-assignment-seconds: 30
+    code-format: yyMMdd-XXXXXX
+  gift:
+    poll-interval: 15s
+    delay-assignment-seconds: 5
+
+logging:
+  level:
+    root: info
+    net.dualsoft.services: info

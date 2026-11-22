@@ -1,0 +1,8 @@
+database:
+  client-id: iuser-bonus-unlocker
+  program: iuser-bonus-unlocker
+  terminal: iuser-bonus-unlocker
+
+kafka:
+  clientId:
+    suffix: pionir-ct

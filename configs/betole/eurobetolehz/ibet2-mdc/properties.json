@@ -1,0 +1,21 @@
+{
+   "instanceCode":"euroole",
+   "minVersion":"22.5.7",
+   "design":"l",
+   "luckySixIFrameResizerUrl":"https://assets.nsoft-cdn.com/public/cdn/iframe-resizer/3.4.0/script.js",
+   "context":"ibet",
+   "context_ibet2":"restapi",
+   "version":"${IBET2_MDC_APPS_VERSION}",
+   "currentVersion":"22.5.7",
+   "dataCompressEnabled":"true",
+   "instanaTagId": "NXoWhOjNSamz4JNt7FwV2g",
+   "responsiveThreshold": 1270,
+   "applicationTypeOverrider": {
+      "icParams": null,
+      "toolbar": null,
+      "images": null,
+      "lobby": null,
+      "betPage": null,
+      "face": "MOBILE"
+   }
+}

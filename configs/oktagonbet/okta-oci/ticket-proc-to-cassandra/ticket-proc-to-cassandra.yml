@@ -1,0 +1,17 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra-oci@oktagonbet.rs
+ to: betsrv@dualsoft.net
+
+
+kafka:
+  
+  clientId:
+   suffix: okta-oci
+  instances:
+
+ttlInDaysForMonthHistoryTables: 31

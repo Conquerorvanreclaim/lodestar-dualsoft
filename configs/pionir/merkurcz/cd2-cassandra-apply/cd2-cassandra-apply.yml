@@ -1,0 +1,318 @@
+cdc:
+ apply:
+  table-name-prefix: 
+
+kafka:
+  clientId:
+    suffix: merkur-cz
+  producer:
+    bootstrap-servers: kc1-cz.pionir.io:9092,kc2-cz.pionir.io:9092,kc3-cz.pionir.io:9092
+    clientId:
+      prefix: PIONIR
+  tolerableLagInSeconds: 3   
+  thread-numbers: 16
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+  pollTimeoutMs: 200
+   
+cassandra:
+ local:
+    minConnectionsPerHost: 4
+    maxConnectionsPerHost: 10
+ remote:
+    minConnectionsPerHost: 2
+    maxConnectionsPerHost: 4
+ heartbeatInterval: 10 
+
+cdcs:
+ groups:
+  - groupName: odds
+    exchangeName: CDC_ODDS_EX
+    rowEventTopic: CDC_CS_ODDS_EVENTS
+    instances:
+    tables:
+    - name: OD_BET    
+      compact: true  
+    - name: OD_BET_FORMAT     
+      compact: true 
+    - name: OD_BET_LINE      
+      compact: true
+    - name: OD_BET_PICK      
+      compact: true
+    - name: OD_BET_PICK_GROUP
+      compact: true
+    - name: OD_BET_PAGE
+      compact: true
+      sourceKey: BOOK;PAGE_CODE;SPORT;PHASES
+    - name: OD_BET_PAGE_PICK_GROUP
+      compact: true
+    - name: OD_BET_PAGE_PICK_INPUT
+      compact: true
+    - name: OD_CBL_AUTH_PARAMS
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+    - name: OD_CBL_BLOCKADES      
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+    - name: OD_CBL_LIMITS      
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+    - name: OD_CBL_CONDITIONS    
+      compact: true 
+      filter: BOOK=19 
+      sourceKey: ID
+    - name: OD_BOOK      
+      compact: true
+      filter: CODE=19
+    - name: OD_BOOK_ANNEX
+      compact: true
+      filter: BOOK=19
+      sourceKey: CODE
+    - name: OD_BOOK_SPORT   
+      compact: true
+    - name: OD_INSTANCE_COUNTRY
+      compact: true
+      sourceKey: ID
+    - name: OD_SPORT
+      compact: true
+    - name: OD_LEAGUE      
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID    
+    - name: OD_LEAGUE_ANNEX     
+      compact: true
+      filter: BOOK=19 
+      sourceKey: ID
+    - name: OD_LEAGUE_TABLE
+      sourceKey: ID
+    - name: OD_LEAGUE_GROUP
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+      sendPrevJValue: true
+    - name: OD_ROUND      
+      compact: true
+      filter: BOOK=19
+    - name: OD_MATCH    
+      compact: true
+      filter: BOOK=19
+      ttlInDays: 40
+      ttlColumn: KICKOFF_TIME
+      additionalTables:
+          - name: OD_MATCH_JVALUE
+            targetName: OD_MATCH_JVALUE
+            ttlInDays: 40
+            ttlColumn: KICKOFF_TIME
+    - name: OD_MATCH_BET    
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+      ttlInDays: 40
+    - name: OD_MATCH_ANNEX
+      compact: true
+      filter: BOOK=19
+      sourceKey: ID
+    - name: ES_RESULT
+      sourceKey: ID
+      ttlInDays: 1
+      ttlColumn: KICK_OFF_TIME  
+    - name: OD_FEED     
+      compact: true 
+      sendPrevJValue: true
+    - name: OD_SCORE_TYPE
+      compact: true
+      sourceKey: SCORE_TYPE
+    - name: OD_RESULT_TYPE
+      compact: true
+      sourceKey: RESULT_TYPE 
+  - groupName: liveodds
+    exchangeName: CDC_ODDS_LIVE_EX
+    rowEventTopic: CDC_CS_ODDS_LIVE_EVENTS
+    instances:
+    tables:
+     - name: OD_MATCH_LIVE    
+       compact: true
+       filter: BOOK=19
+       sourceKey: ID
+       ttlInDays: 3
+     - name: OD_MATCH_LIVE_BET  
+       compact: true
+       filter: BOOK=19
+       sourceKey: ID
+       ttlInDays: 3
+  - groupName: core
+    exchangeName: CDC_CORE_EX
+    instances:
+    tables:
+    - name: CO_COUNTRY
+      compact: true
+    - name: CO_PREVOD_JEZIK
+      compact: true
+    - name: CO_PROVIDER
+      compact: true
+    - name: IC_PARAMETER
+      compact: true
+    - name: IC_PARAMETER_INSTANCE
+      compact: true
+    - name: CO_CASINO_GAME
+      compact: true
+    - name: CO_LOBBY
+      compact: true
+    - name: CO_LOBBY_CASINO_GAME
+      compact: true
+    - name: CO_CASINO_ROOM
+      compact: true 
+    - name: CO_AFFILIATE
+      compact: true   
+    - name: IC_GIFT
+      compact: true
+    - name: IC_BONUS
+      compact: true
+    - name: IC_TOURNAMENT
+      compact: true
+    - name: IC_TOURNAMENT_GAME
+      compact: true
+    - name: IC_TOURNAMENT_PRIZE
+      compact: true
+    - name: IC_TOURNAMENT_ROUND
+      compact: true
+    - name: IC_TOURNAMENT_ROUND_LIST
+      compact: true
+    - name: IC_TOURNAMENT_ROUND_POS
+      sourceKey: ID
+      compact: true
+    - name: QB_JACKPOT_CONFIG
+      compact: true
+  - groupName: translations
+    rowEventTopic: CDC_TRANSLATION_EVENTS
+    instances:
+    tables:
+     - name: CO_PREVOD
+       compact: true
+       sourceKey: ID
+  - groupName: instanceCore
+    exchangeName: CDC_INSTANCE_CORE_EX
+    instances:
+    tables:
+     - name: CO_LOCATION      
+       compact: true 
+     - name: CO_TERMINAL
+       compact: true
+     - name: IC_USER_FCM
+       compact: true
+  - groupName: tickets
+    exchangeName: CDC_TICKETS_EX
+    rowEventTopic: CDC_TICKETS
+    instances:
+    tables:
+    - name: W3_TICKET
+      ttlInDays: 35
+      ttlColumn: RESOLVED_DAY
+    - name: W3_TICKET_TEMPLATE
+      ttlInDays: 30
+      ttlColumn: EXPIRE_DATE
+  - groupName: notifications
+    exchangeName: CDC_INSTANCE_CORE_EX
+    rowEventTopic: CDC_NOTIFICATIONS
+    instances:
+    tables:
+     - name: IC_USER_ACCOUNT_TRANSACTION 
+       ttlInDays: 1
+     - name: IC_USER_DIRECT_NOTIFICATION
+       ttlInDays: 95
+     - name: QB_TICKET_AUTH
+       ttlInDays: 1
+       ttlColumn: REQUEST_DATE_TIME
+     - name: IC_TRANSFER_REQUEST
+       ttlInDays: 3
+       ttlColumn: REQUEST_DATE
+     - name: QB_PREPAYMENT
+       ttlInDays: 1
+       ttlColumn: REQUEST_DATE_TIME
+     - name: IC_USER     
+       compact: true
+       sendPrevJValue: true
+     - name: IC_USER_ACCOUNT
+       compact: true
+       sourceKey: ID
+     - name: IC_USER_BANK_ACCOUNT
+       compact: true
+     - name: IC_USER_GIFT
+       ttlInDays: 180
+     - name: IC_USER_BONUS
+       compact: true
+       targetName: IC_USER_BONUS_VIE
+       sourceKey: ID
+     - name: IC_INCODE_SESSION
+       compact: true
+  - groupName: iuserParams
+    exchangeName: CDC_INSTANCE_CORE_EX
+    rowEventTopic: CDC_CO_PARAMETER
+    instances:
+    tables:    
+     - name: CO_PARAMETER
+       compact: true
+     - name: CO_PARAMETER_GROUP
+       compact: true
+       sourceKey: LOCATION_GROUP;PARAMETER
+     - name: CO_PARAMETER_LOCATION
+       compact: true
+       sourceKey: LOCATION;PARAMETER
+     - name: CO_PARAMETER_TERMINAL
+       compact: true
+       sourceKey: TERMINAL;PARAMETER
+     - name: CO_PARAMETER_IUSER
+       compact: true
+       sourceKey: PARAMETER;USER_UUID
+  - groupName: results
+    exchangeName: CDC_RESULTS_EX
+    rowEventTopic: CDC_CS_RESULTS_EVENTS
+    instances:
+    tables:
+    - name: OD_RESULT
+      compact: true
+      sourceKey: MID
+      ttlInDays: 10
+      sendPrevJValue: true   
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: CDC_TRANSLATION_EVENTS
+          numOfPartitions: 8
+          replicationFactor: 2
+          retentionMs: 50000000 
+          useUnderscore: true
+        - name: CDC_TICKETS
+          numOfPartitions: 1
+          replicationFactor: 2
+          retentionMs: 14400000 
+          useUnderscore: true
+        - name: CDC_NOTIFICATIONS
+          numOfPartitions: 16
+          replicationFactor: 2
+          retentionMs: 7200000 
+          useUnderscore: true
+        - name: CDC_CS_ODDS_EVENTS
+          numOfPartitions: 8
+          replicationFactor: 2
+          retentionMs: 1200000 
+          useUnderscore: true
+        - name: CDC_CS_ODDS_LIVE_EVENTS
+          numOfPartitions: 8
+          replicationFactor: 2
+          retentionMs: 1200000
+          useUnderscore: true
+        - name: CDC_CO_PARAMETER
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+          useUnderscore: true
+        - name: CDC_CS_RESULTS_EVENTS
+          numOfPartitions: 8
+          replicationFactor: 2
+          retentionMs: 1200000
+          useUnderscore: true              

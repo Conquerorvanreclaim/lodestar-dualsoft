@@ -1,0 +1,16 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra@dualsoft.net
+ to: betsrv@dualsoft.net
+
+
+kafka:
+  clientId:
+   suffix: soccer-ms
+  instances:
+
+ttlInDaysForMonthHistoryTables: 31

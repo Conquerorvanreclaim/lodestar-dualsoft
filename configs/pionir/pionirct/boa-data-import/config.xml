@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sessionconfig>
+    <log_config>
+        <log_levels>
+            <level>INFO</level>
+            <name></name>
+        </log_levels>
+        <log_levels>
+            <level>FINE</level>
+            <name>net.dualsoft</name>
+        </log_levels>
+        <log_files>
+            <pattern>application_logs-%g</pattern>
+            <level>ALL</level>
+            <limit>5000000</limit>
+            <count>100</count>
+        </log_files>
+        <log_files>
+            <pattern>error_logs-%g</pattern>
+            <level>SEVERE</level>
+            <limit>5000000</limit>
+            <count>300</count>
+        </log_files>
+    </log_config>
+    <jms_config>
+        <queueName>GameImport</queueName>
+        <username>admin</username>
+        <password>admin</password>
+        <hostName>boa-ws</hostName>
+        <port>8076</port>
+    </jms_config>
+    <ws_config>
+        <url>http://boa-ws:8080</url>
+        <username>admin</username>
+        <password>admBOA</password>
+    </ws_config>
+</sessionconfig>

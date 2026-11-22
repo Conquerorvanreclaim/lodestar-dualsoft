@@ -1,0 +1,48 @@
+database:
+  client-id: fuze-integration-api
+  program: Fuze Integration API
+  terminal: fuze-integration-api
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+redis:
+  readtimeout: 20 #sekunde
+
+kafka:
+  tolerableLagInSeconds: 5
+  pollTimeoutMs: 300
+  maxPollRecords: 500
+  maxPollInterval: 300000
+  consumer:
+    thread-number: 4
+    topic:
+      cdc-w3-ticket:
+        name: CDC_W3_TICKET
+        numOfPartitions: 16
+        replicationFactor: 2
+        useUnderscore: true
+      ticket-processor-events:
+        name: TICKET-PROCESSOR-EVENTS
+        numOfPartitions: 16
+        replicationFactor: 2
+        useUnderscore: false
+
+kafka-admin:
+  enabled: true
+  topics[0]:
+    name: BRAGG-BET-DETAILS
+    numOfPartitions: 16
+    replicationFactor: 2
+    useUnderscore: false
+
+fuze-integration-api:
+  openapi:
+    url: https://app.merkurtip.rs/fuze-integration-api
+  offer:
+    book: 19
+  instance:
+    codes: merkurcz
+  api:
+    key: c168c447-5f14-4330-a5d2-44c079ee371f
+  log-requests: true

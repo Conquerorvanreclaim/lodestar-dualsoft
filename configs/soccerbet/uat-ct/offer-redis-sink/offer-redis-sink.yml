@@ -1,0 +1,26 @@
+#
+# OFFER-REDIS-SINK
+#
+
+kafka:
+  clientId:
+    suffix: soccer-uat-ct
+  numOfStreamThreads: 8
+
+redis:
+    databaseNumber: 10
+     
+# language.filter - jezik za koji se upisuju kvote, mecevi sa kafke na drugim jezicima se preskacu
+config:
+    languageFilter: en
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000
+
+# Enable for merkurtip (default is 3)
+results:
+    expire_in_days: 10
+# Enable for kilibet
+# results_with_rounds:
+#    expire_in_days: 30

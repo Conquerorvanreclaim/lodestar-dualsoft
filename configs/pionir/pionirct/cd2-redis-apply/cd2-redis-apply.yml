@@ -1,0 +1,304 @@
+kafka:
+  thread-numbers: 16
+  clientId:
+    suffix: pionir-ct
+  pollTimeoutMs: 200
+
+redis:
+  stream-max-length-size: 100000
+
+
+# hash-columns (optional) - koje kolone ulaze u naziv hash-a
+# key-columns - koje kolone predstavljaju kljuc podatka u hash-u
+# value-columns - koje sve kolone iz DBTransactionRow-a se serijalizuju u json value, * -> sve    
+# delete-enabled (optional), default je false, da li aplikacija reaguje na DELETE poruku
+# TTL parametri, redosled po kome se primenjuje je:
+# 1) set-round-ttl (optional), default je false, da li se nad key-em postavlja TTL iz odgovarajuceg kola (toDateTime)
+# 2) ttl-column-in-minutes - u slucaju da u podatku postoji kolona za TTL
+
+redis-keys:
+    keys:
+    - name: CO_PARAMETER
+      compact: true
+      value-columns:
+          - CODE
+          - NAME
+          - PARAM_VALUE
+      publishEvent: true
+    - name: CO_PARAMETER_GROUP
+      compact: true
+      hash-columns:
+          - LOCATION_GROUP
+      key-columns:
+          - PARAMETER
+      value-columns:
+          - '*'
+      delete-enabled: true
+      publishEvent: true
+    - name: CO_PARAMETER_LOCATION
+      compact: true
+      hash-columns:
+          - LOCATION
+      key-columns:
+          - PARAMETER
+      value-columns:
+          - '*'
+      delete-enabled: true
+      publishEvent: true
+    - name: CO_PARAMETER_TERMINAL
+      compact: true
+      hash-columns:
+          - TERMINAL
+      key-columns:
+          - PARAMETER
+      value-columns:
+          - '*'
+      delete-enabled: true
+      publishEvent: true
+    - name: CO_PARAMETER_IUSER
+      compact: true
+      hash-columns:
+          - USER_UUID
+      key-columns:
+          - PARAMETER
+      value-columns:
+          - '*'
+      delete-enabled: true
+      publishEvent: true
+    - name: CO_LOCATION_GROUP
+      compact: true
+      value-columns:
+          - '*'
+    - name: CO_LOCATION
+      compact: true
+      value-columns:
+          - '*'
+    - name: CO_TERMINAL
+      compact: true
+      value-columns:
+          - '*'          
+    - name: OD_MATCH
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+      set-round-ttl: true
+    - name: OD_MATCH_BET
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+          - MATCH_CODE
+      key-columns:
+          - MATCH_CODE
+          - BET_CODE
+          - SPECIAL_VALUE
+      value-columns:
+          - '*' 
+      set-round-ttl: true
+    - name: OD_MATCH_LIVE
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+      key-columns:
+          - MATCH_CODE
+      value-columns:
+          - '*' 
+      set-round-ttl: true
+    - name: OD_MATCH_LIVE_BET
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+          - MATCH_CODE
+      key-columns:
+          - MATCH_CODE
+          - BET_CODE
+          - SPECIAL_VALUE
+      value-columns:
+          - '*' 
+      set-round-ttl: true
+    - name: OD_BOOK
+      compact: true
+      value-columns:
+          - '*'
+    - name: ES_RESULT
+      hash-columns:
+          - BOOK
+          - ROUND
+          - SOURCE
+      key-columns:
+          - MATCH_CODE
+      value-columns:
+          - '*' 
+    - name: OD_RESULT
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+      key-columns:
+          - CODE
+      value-columns:
+          - '*'
+      ttl-in-days: 10
+    - name: OD_BOOK_ANNEX
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*'
+      delete-enabled: true
+    - name: OD_ROUND
+      compact: true
+      value-columns:
+          - '*'
+    - name: OD_MATCH_ANNEX
+      compact: true
+      hash-columns:
+          - BOOK
+          - ROUND
+          - BOOK_ANNEX_CODE
+      key-columns:
+          - MATCH_CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true
+      set-round-ttl: true
+    - name: OD_LEAGUE
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+    - name: OD_LEAGUE_ANNEX
+      compact: true
+      hash-columns:
+          - BOOK
+          - BOOK_ANNEX_CODE
+      key-columns:
+          - LEAGUE_CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true
+    - name: OD_CBL_CONDITIONS
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true
+    - name: OD_CBL_BLOCKADES
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true
+    - name: OD_CBL_LIMITS
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true
+    - name: OD_CBL_AUTH_PARAMS
+      compact: true
+      hash-columns:
+          - BOOK
+      key-columns:
+          - CODE
+      value-columns:
+          - '*' 
+      delete-enabled: true   
+    - name: OD_TEAM
+      compact: true
+      value-columns:
+          - '*'
+    - name: CO_PREVOD
+      compact: true
+      hash-columns:
+          - JEZIK
+      key-columns:
+          - TIP
+          - KEY1
+          - KEY2
+          - KEY3
+          - KEY4
+          - KEY5
+      value-columns:
+          - '*'
+      delete-enabled: true
+      publishEvent: true
+    - name: OD_BET
+      compact: true
+      key-columns:
+          - CODE
+      value-columns:
+          - '*'
+      publishEvent: true
+    - name: OD_BET_PICK
+      compact: true
+      key-columns:
+          - CODE
+      value-columns:
+          - '*'
+      publishEvent: true
+    - name: OD_BET_PICK_GROUP
+      compact: true
+      hash-columns:
+          - INSTANCE_CODE
+      key-columns:
+          - ID
+      value-columns:
+          - '*'
+      additionalIndex: OD_BET_PICK_GROUP_BY_ID
+      additional-key-columns:
+          - ID
+      publishEvent: true
+    - name: IC_CURRENCY
+      compact: true
+      value-columns:
+          - '*'
+    - name: OD_FEED
+      compact: true
+      key-columns:
+          - CODE
+      value-columns:
+          - '*'
+    - name: QB_JACKPOT_CONFIG
+      compact: true
+      key-columns:
+          - ID
+      value-columns:
+          - '*'
+    - name: IC_BLOCKED_IP_ADDRESS
+      hash-columns:
+          - IP_ADDRESS
+      key-columns:
+          - IP_ADDRESS
+      value-columns:
+          - '*'
+      ttl-column-in-minutes: BLOCKED_TIME
+    - name: IC_BLOCKED_COUNTRY
+      hash-columns:
+          - COUNTRY_CODE
+      key-columns:
+          - COUNTRY_CODE
+      value-columns:
+          - '*'
+      ttl-column-in-minutes: BLOCKED_TIME

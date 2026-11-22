@@ -1,0 +1,80 @@
+#na nginxu i ingresu mora da ima podeseno client_header_buffer_size   8k; large_client_header_buffers 8 64k; da bi prolazio login zbog velicine jwt tokena, inace baca gresku Bad Request i http status 400. 
+database:
+  client-id: bet-admin-service
+  program: bet-admin-service
+  terminal: bet-admin-service
+  min-idle: 10
+  max-idle: 10
+  max-active: 10
+
+redis:
+  readBetData: true
+
+fudbal91Bookmaker: MerkurXTip
+
+cdc:
+  rabbit:
+    exchange: BAS_CDC_EVENT_EX
+    queue: BAS_CDC_EVENT_Q
+
+#Strimovi
+imgStreamUrl:
+imgStreamSecretKey: 
+imgStreamOperatorId: 
+
+statsPerformAuthKey: 
+#ako je 1 onda je za trenutni datum
+statsPerformDaysForward: 1
+statsPerformStreamUrl:
+
+feedConstructUrl: 
+feedConstructPartnerId: 
+feedConstructApiKey: 
+
+inFrontStreamUrl:
+inFrontApiKey:
+# Validne vrednosti za inFrontPageSize od 1 do 100
+inFrontPageSize: 100
+inFrontNumberOfDays: 6
+
+bawsPublicIPAddress: 
+
+kafka:
+  platformEventsProducer:
+    enabled: true
+
+#zavisno od liste se vadi property
+sdk:
+  unified:
+    token_1: 
+    token_9: MUj2kmwGpzPfeMuHiT
+
+wallet:
+  proxy:
+    url: http://wallet-proxy:8080/wallet-proxy/
+  url: https://wallet.merkurtip.rs
+
+reconciliation_api_token: tapofU0UoghLf2Jv5ilfC5AFFDGAqrWATVzbSKN7EDg
+
+exefeedRecovery:
+  live-feed-barracuda:
+    url:
+      BA: 
+      BA1: 
+      BA2: 
+    format: JARRAY
+  exefeedApi:
+    auth: 
+      uid: 
+      pwd: 
+
+allsecure:
+  apiurl: https://asxgw.com
+  username: merkurxtip-1224-api
+  password: 4P§?it*N3F)(x3gwz.Ag"+XB"eQ_U
+  apiKey: merkurxtip-otp-01
+  connection:
+    timeout: 10000
+  read:
+    timeout: 10000
+

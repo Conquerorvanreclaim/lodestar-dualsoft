@@ -1,0 +1,46 @@
+# ===== Tomcat config  ============
+server: 
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false
+    servlet:
+        context-path: /lite
+spring:
+    freemarker:
+        template-loader-path: classpath:/sDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+
+task_name: soccer
+
+page:
+    limit: 25
+
+    
+africa:
+    talking:
+        username:
+        api_key:
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 0 0 * * *"
+
+#============ ELASTIC ======================
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+elasticsearch:
+    protocol: http
+
+ticketViewerMaxConnections: 250
+ticket:
+    viewer:
+        password: 2023soccerlive
+        username: livesoccerusr
+        url: http://ticket-viewer.ps:8080/ticket-viewer/

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" >
+    <Loader delegate="true"/>
+    <Parameter description="boemProperties"
+                name="boemProperties"
+               value="/data/back-office-api/boem-api.properties"
+                override="false">
+    </Parameter>
+</Context>

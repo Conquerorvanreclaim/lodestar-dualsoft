@@ -1,0 +1,88 @@
+database:
+ type: oracle
+ client-id: cd2
+ program: CD2 Oracle Trans Stream
+ terminal: cd2tstream
+ min-idle: 4
+ max-idle: 4
+ max-active: 4
+
+kafka:
+  compression-enabled: true
+
+stream-tables:
+    tables:
+        - name: OD_BET
+        - name: OD_BET_FORMAT
+        - name: OD_BET_LINE
+        - name: OD_BET_PICK
+        - name: OD_BET_PICK_GROUP
+        - name: OD_CBL_AUTH_PARAMS
+        - name: OD_CBL_BLOCKADES
+        - name: OD_CBL_LIMITS
+        - name: OD_CBL_CONDITIONS
+        - name: OD_BOOK
+        - name: OD_BOOK_ANNEX
+        - name: OD_SPORT
+        - name: OD_LEAGUE
+        - name: OD_TEAM
+        - name: OD_LEAGUE_ANNEX
+        - name: OD_LEAGUE_TABLE
+        - name: OD_LEAGUE_GROUP
+        - name: OD_ROUND
+        - name: OD_MATCH
+        - name: OD_MATCH_ANNEX
+        - name: OD_MATCH_LIVE
+          queryName: CD$_OD_MATCH_LIVE
+        - name: OD_MATCH_LIVE_BET
+          queryName: CD$_OD_MATCH_LIVE_BET
+        - name: CO_CASINO_GAME
+        - name: CO_CASINO_GAME_TYPE
+        - name: CO_COUNTRY
+        - name: CO_GAME_PRODUCER
+        - name: CO_PREVOD
+        - name: CO_PREVOD_JEZIK
+        - name: CO_PROVIDER
+        - name: CO_PARAMETER
+        - name: CO_PARAMETER_GROUP
+        - name: CO_PARAMETER_LOCATION
+        - name: CO_PARAMETER_TERMINAL
+        - name: CO_PARAMETER_IUSER
+        - name: IC_PARAMETER
+        - name: IC_PARAMETER_INSTANCE
+        - name: CO_LOCATION_GROUP
+        - name: CO_LOCATION
+        - name: CO_TERMINAL
+        - name: CO_TERMINAL_HB
+        - name: CO_USER_WEB_ROLE
+        - name: IC_UIS_MSG
+        - name: IC_USER
+        - name: IC_USER_ACCOUNT
+        - name: IC_USER_ACCOUNT_TRANSACTION
+        - name: IC_USER_BONUS
+        - name: W3_TICKET
+        - name: W3_TICKET_MATCH_TYPE
+        - name: W3_JOURNAL
+        - name: W3_TICKET_COUNTER_VALUE
+        - name: W3_ETICKET
+        - name: W3_EJOURNAL
+  
+kafka-admin:
+    enabled: true
+    topics:
+        - name: CDC_TRANS_EX
+          numOfPartitions: 8
+          replicationFactor: 2
+          maxMessageBytes: 50000000   
+          useUnderscore: true
+          sufixes:
+              - ALL
+              - "NULL"
+              - LANDMERKURRS
+              - IFSTEST
+              - MERKURRS
+              - PIORADAR
+              - PIOSTAGE
+              - TESTMERKUR
+              - MERKURCZ
+              - MERKURCZCERT

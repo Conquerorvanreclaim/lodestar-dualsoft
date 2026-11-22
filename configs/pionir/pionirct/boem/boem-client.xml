@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" >
+    <Loader delegate="true"/>
+      <Environment name="boemPropertiName" value="/data/back-office-api/boem-client.properties" type="java.lang.String"/>
+</Context>

@@ -1,0 +1,15 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: translation-events-to-cassandra-mk@maxbet.rs
+ to: betsrv@dualsoft.net,milos.s@dualsoft.net
+
+kafka:
+  clientId:
+   suffix: mk
+
+
+

@@ -1,0 +1,25 @@
+instance: soccerrs
+translation_instance_code: soccerrs
+aditional_instance_codes_for_login: 
+book: 10
+annex: 0
+location_code: 10000
+in_hours_list: 1,3
+app_language: sr
+remote:
+    ibet:
+
+        recoveryPassword:
+            url: https://www.soccerbet.rs/ibet/resetPassword.json
+
+        gameDescription:
+            url: https://www.soccerbet.rs/ibet/getAllOdBetPickGroups.json
+        setPassword:
+            url: https://www.soccerbet.rs/ibet/user/setActivationPassword.json
+        express:
+            ticket:
+                url: https://www.soccerbet.rs/ibet/ticket/getTranslatedXTicketByUuid.json
+
+
+        referer:
+    

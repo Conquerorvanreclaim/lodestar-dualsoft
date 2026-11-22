@@ -1,0 +1,46 @@
+{
+  "context": "ibet",
+  "context_ibet2": "restapi",
+  "instanceCode": "maxonlineme",
+  "translateInstanceCode": "maxme",
+  "dataCompressEnabled": "true",
+  "design": "b",
+  "luckySixIFrameResizerUrl": "https://assets.nsoft-cdn.com/public/cdn/iframe-resizer/3.4.0/script.js",
+  "ticketSuggestion": "false",
+  "enable_lmt": "true",
+  "version": "${IBET2_RDC_APPS_VERSION}",
+  "minVersion": "21.5.1",
+  "currentVersion": "21.5.1",
+  "newVersionUrlAndroid": "https://www.maxbet.me/static/maxbetme.apk",
+  "googleMaps.apiKey": "",
+  "postaffiliateproId": "pap_x2s6df8d",
+  "postaffiliateproSrc": "https://maxbetme.postaffiliatepro.com/scripts/469jqn1vk",
+  "ga4TagManager":"GTM-52T8RHQ",
+  "firebase.web.apiKey": "AIzaSyAPNb7UYJHIT0mEn64YoNPTAjdtVS8Fn_g",
+  "firebase.web.authDomain": "maxrs-ibet-mobile.firebaseapp.com",
+  "firebase.web.databaseURL": "https://maxrs-ibet-mobile.firebaseio.com",
+  "firebase.web.projectId": "maxrs-ibet-mobile",
+  "firebase.web.storageBucket": "maxrs-ibet-mobile.appspot.com",
+  "firebase.web.messagingSenderId": "1094465552212",
+  "firebase.web.appId": "1:1094465552212:web:0c55b41ae4dcaa139c12c1",
+  "firebase.web.measurementId": "G-26N8DBL3DH",
+  "firebase.web.vapidKey": "BFKlJRkNteKqtJH7hLpJHfNTfHROXX0nz0vYq-2ohSHbOEXiDvhifwuEwoTAdpkNNitT0PEyxejkG6izhFicmBY",
+  "appleItunesAppId": "1478638545",
+  "instanaTagId": "Zm4KpM-3S2Kr0EvWB2wG8g",
+  "responsiveThreshold": 1025,
+  "applicationTypeOverrider": {
+    "icParams": null,
+    "toolbar": null,
+    "images": null,
+    "lobby": null,
+    "betPage": "MOBILE"
+  },
+   "EASIT_URL": " https://casinolobby.maxbet.me/",
+   "incode.mobileRedirectUrl": "https://www.maxbet.me/sr_ME/incode-verification",
+   "incode.finishedVerificationMobileReturnUrl": "https://www.maxbet.me/sr_ME/zavrsi-registraciju/verification-success"
+
+   
+}
+
+
+

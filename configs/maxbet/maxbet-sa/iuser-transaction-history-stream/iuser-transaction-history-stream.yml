@@ -1,0 +1,12 @@
+kafka:
+  client-id:
+    iuser-transaction-history-stream-sa
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 16
+
+
+
+ttlWeekDays: 7
+ttlMonthDays: 31

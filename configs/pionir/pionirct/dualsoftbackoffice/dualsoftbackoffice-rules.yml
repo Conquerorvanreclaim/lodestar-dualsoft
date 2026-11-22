@@ -1,0 +1,192 @@
+rules-config:
+  rules:
+  - name: score-rules
+    value: > 
+      package net.dualsoft.bo.api.sb.services;
+      dialect "mvel"
+
+
+      rule "copy HT to FT in half time"
+        when
+            $c : ScoreChange(scoreType == "HT")
+        then
+            $c.changeScore("FT");
+      end
+
+      rule "Soccer 0-15 over 15"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT",  nMin > 13, nMin < 17)
+      then
+        $c.changeScoreUnknown("F15M");
+      end
+
+      rule "Soccer 0-30 over 30"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT", nMin > 28, nMin < 32)
+      then
+        $c.changeScoreUnknown("F30M");
+      end
+
+      rule "Soccer 0-15"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT", nMin <= 13)
+      then
+        $c.changeScore("F15M");
+      end
+
+      rule "Soccer 0-30"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT", nMin <= 28)
+      then
+        $c.changeScore("F30M");
+      end
+
+      rule "Soccer 0-30 over 17"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT", nMin >= 17, (cHome == 0 && cAway == 0) || (nHome == 0 && nAway == 0))
+      then
+        $c.changeScore("F15M",0,0);
+      end
+      
+      rule "Soccer 0-30 over 32"
+      when
+        $c : ScoreChange(resultType == "N", scoreType  == "HT", nMin >= 32, (cHome == 0 && cAway == 0) || (nHome == 0 && nAway == 0))
+      then
+        $c.changeScore("F30M",0,0);
+      end
+
+      rule "goal events"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" || scoreType == "OT", nHome != cHome || nAway != cAway)
+          then
+              $c.addScoreEvent("G");
+      end
+
+      rule "first/last goal none"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" , nHome==0, nAway == 0)
+          then
+              $c.changeScore("FGL",3,0);
+              $c.changeScore("LGL",3,0);
+      end
+
+
+      rule "first goal home"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" , nHome==1, nAway == 0)
+          then
+              $c.changeScore("FGL",1,0);
+      end
+
+      rule "first goal away"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" , nHome==0, nAway == 1)
+          then
+              $c.changeScore("FGL",2,0);
+      end
+
+      rule "last goal home"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" , nHome > cHome, nAway == cAway)
+          then
+              $c.changeScore("LGL",1,0);
+      end
+
+      rule "last goal away"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT" || scoreType == "FT" , nHome == cHome, nAway > cAway)
+          then
+              $c.changeScore("LGL",2,0);
+      end
+
+      rule "first goal 1st half home"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT", nHome > 0, nAway == 0)
+          then
+              $c.changeScore("FGL1H",1,0);
+      end
+      
+      rule "first goal 1st half away"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT", nHome == 0, nAway > 0)
+          then
+              $c.changeScore("FGL1H",2,0);
+      end
+      
+      rule "first goal 1st half none"
+          when
+              $c : ScoreChange(resultType == "N", scoreType == "HT", nHome == 0, nAway == 0)
+          then
+              $c.changeScore("FGL1H",3,0);
+      end
+
+      rule "copy S1 to HT"
+      when
+        $c : ScoreChange(scoreType  == "S", specialValue == "setnr=1")
+      then
+        $c.changeScore("HT");
+      end
+
+      rule "calculate FT from SETs"
+      when
+        $c : ScoreChange(scoreType == "S" || scoreType =="S3", ((nHome ==6 || nAway ==6) && Math.abs(nHome-nAway)>=2) || nHome ==7 || nAway ==7) // ili je faza end
+      then
+        $c.sumScoreInSets("FT");
+        $c.addPhaseChangedEvent(); // Domacin pobedio u setu sa
+      end
+
+      rule "Q"
+      when
+        $c : ScoreChange(resultType == "Q", scoreType == "FT" || scoreType == "HT")
+      then
+        $c.changeScoreInPhase("Q");
+      end
+
+      rule "FT from Q"
+      when
+        $c : ScoreChange(resultType == "Q", scoreType == "Q")
+      then
+        $c.sumScore("FT");
+      end
+
+      rule "HT from Q"
+      when
+        $c : ScoreChange(resultType == "Q", scoreType == "Q")
+      then
+        $c.sumScore("HT",2);
+      end
+
+      rule "OT from ET"
+      when
+        $c : ScoreChange(resultType == "Q", scoreType == "ET")
+      then
+        $c.sumScoreWithScore("OT","FT");
+      end
+
+      rule "Basket Overtime"
+      when
+        $c : ScoreChange(resultType == "Q", scoreType == "FT" || scoreType == "HT")
+      then
+        $c.changeScore("OT",null);
+      end
+
+      rule "basket player events"
+          when
+              $c : ScoreChange(resultType == "QPL")
+          then
+              $c.addScoreEvent("P");
+      end
+      
+      rule "P"
+      when
+        $c : ScoreChange(resultType == "P", scoreType == "FT" || scoreType == "HT")
+      then
+        $c.changeScoreInPhase("P");
+      end
+
+      rule "Hockey Overtime"
+      when
+        $c : ScoreChange(resultType == "P", scoreType == "FT" || scoreType == "HT")
+      then
+        $c.changeScore("OT",null);
+      end

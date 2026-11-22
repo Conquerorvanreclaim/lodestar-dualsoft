@@ -1,0 +1,33 @@
+instance: soccercg
+translation_instance_code: soccerrs
+aditional_instance_codes_for_login: 
+book: 10
+annex: 0
+location_code: 40001
+in_hours_list: 1,3
+app_language: sr_ME
+
+remote:
+    ibet:
+
+        recoveryPassword:
+            url: https://www.soccerbet.me/ibet/resetPassword.json
+
+        gameDescription:
+            url: https://www.soccerbet.me/ibet/getAllOdBetPickGroups.json
+        setPassword:
+            url: https://www.soccerbet.me/ibet/user/setActivationPassword.json
+        express:
+            ticket:
+                url: https://www.soccerbet.me/ibet/ticket/getTranslatedXTicketByUuid.json
+
+
+        referer:
+
+
+ticketViewerMaxConnections: 250
+ticket:
+    viewer:
+        password: 2023soccerlivecg
+        username: livesoccercg
+        url: http://ticket-viewer.ps:8080/ticket-viewer/

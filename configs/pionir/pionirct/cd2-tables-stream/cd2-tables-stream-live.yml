@@ -1,0 +1,50 @@
+database:
+ type: oracle
+ client-id: cd2
+ program: CD2 Tables Stream
+ terminal: cd2ora
+ min-idle: 16
+ max-idle: 16
+ max-active: 16
+
+kafka:
+  compression-enabled: true
+  batch-size: 
+  max-request-size:
+  linger-ms:
+  num-of-threads: 16
+  clientId:
+    suffix: live
+
+stream-tables:
+    tables:
+        - name: OD_MATCH_LIVE
+          compact: true
+          queryName: CD$_OD_MATCH_LIVE
+        - name: OD_MATCH_LIVE_BET
+          compact: true
+          queryName: CD$_OD_MATCH_LIVE_BET
+
+
+kafka-admin:
+    enabled: true
+    default:
+        numOfPartitions: 1
+        replicationFactor: 2
+        useUnderscore: true
+        deleteRetentionMs: 3600000
+        maxMessageBytes: 50000000
+        segmentBytes: 67108864
+        compact:
+            segmentMs: 60000 
+    topics:
+        - name: CDCT_OD_MATCH_LIVE
+          numOfPartitions: 16
+          cleanupPolicy: delete,compact
+          segmentMs: 60000
+          retentionMs: 3600000
+        - name: CDCT_OD_MATCH_LIVE_BET
+          numOfPartitions: 16
+          cleanupPolicy: delete,compact
+          segmentMs: 60000
+          retentionMs: 3600000

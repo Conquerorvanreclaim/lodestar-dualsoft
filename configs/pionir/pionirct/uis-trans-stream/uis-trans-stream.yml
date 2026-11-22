@@ -1,0 +1,58 @@
+database:
+  client-id: uis-trans-stream
+  program: uis-trans-stream
+  terminal: uis-trans-stream
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: UIS_MSG
+          numOfPartitions: 16
+          replicationFactor: 2
+          maxMessageBytes: 50000000   
+          useUnderscore: true
+
+threadPoolSize: 4
+
+rowFetchLimit: 1
+
+msgGenerator:
+    fixedRate: 100
+    
+retry:
+    enabled: true
+    intervalFromInMinutes: 360
+    intervalToInMinutes: 1
+    fixedDelay: 1800000
+
+slotTransactions:
+  promo:
+    initialDelay: 30000
+  
+onlinePlayerBalance:
+  scheduleJobCron: 0 30 0 * * *
+  maxMessageSizeKB: 950
+
+onlinePlayer:
+  deposit:
+    thirdPartyVoucher: TENFORE
+
+jobProcessor:
+  fixedDelay: 300000 
+  initialDelay: 10000
+
+dailySlotJob:
+  maxMessageSizeKB: 950
+  realMoney:
+    cron:  0 0 2 * * *
+  promo:
+    cron:  0 0 3 * * *
+
+zookeeper:
+    enabled: false
+    sessionTimeout: 3000
+    hosts:
+
+# 1 - Game internal, 2 - Progressive, 3 - Fixed amount, 4 - International
+externalBettingJackpotType: 2
+sportsBettingJackpotType: 2

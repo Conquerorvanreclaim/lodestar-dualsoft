@@ -1,0 +1,20 @@
+#
+# OFFER-REDIS-SINK
+#
+
+kafka:
+  clientId:
+    suffix: mk
+  numOfStreamThreads: 8
+
+redis:
+    databaseNumber: 1
+     
+# language.filter - jezik za koji se upisuju kvote, mecevi sa kafke na drugim jezicima se preskacu
+config:
+    languageFilter: mk
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000
+

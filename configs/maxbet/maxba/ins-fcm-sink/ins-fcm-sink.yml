@@ -1,0 +1,18 @@
+kafka:
+  client-id:
+    ins-fcm-sink
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+ 
+firebase:
+  serverKey: AAAALc_cT7w:APA91bFp01LpCCHhPmq2D7Up5dO-A0gly28nvaWBln8LMA3cuYazSBdv-X6BHMCa7uuWuQp6GRjtU9HtRIK7Ck17U8tWyQjk3XXVPTHJO19pd0fIGJ8SrDwOeAMuTfFVQhoiz4PnJI7H
+  url: https://fcm.googleapis.com/fcm/send
+  sdk:
+    config: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"maxba-ibet-mobile\",\n  \"private_key_id\": \"66147b11d93e2318b13e3fc48139952954fdeab3\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDO9KUvjJlSwwjS\\ngu6hT2MLCjOgJDyoa4ij6VuwzmIX83OTE4lST83Dqz24o6eQ7TqESynoZk/dd0Cb\\n1zsoiW3h+5TCcqg0K6lzxhz4QTOaJ+Q16nuODpYvKz3n0Ht5/FezcQLFXQCrYMyl\\ntC+9TxrNr5pIZsfwEQhJsqxPQNH4OjCeazpOBp+4TqUPEW6LSiKBZi70dYQthjWV\\npm9pAIatbqFvHgQCtakVg85QsLe7b0MetsdvfgmTP2v5NfKlEI/F9g39oNA9Wyf+\\nW+3LaxjJu53rcAuyg9Q24OYgBOIPneJWVw1yUnIbudc2o/eCH1WTNY7H0dRlQ0ha\\nxgCa//9pAgMBAAECggEAAR1h7HngrJ94XFISjZmRdkcZ1/t4RfYwLpMiRi4pj1s3\\nxKOHWuNPxEWS605azFcIyuQZ+OKE6kqbGeYVz3mSLfj2ioMZD75zrdf8+X8BalA3\\nKQj5ZnDVERbxPHo72pvX9HN5A13A1B3IkGuUkgl22Z9ADDLT9mrHpDz8c4R62aJ1\\nILWTomyTqBZughG8Qpv0updofLyanftKYfLc5Fwf6bBdCyE7nwZJKI5UcFcyj/xo\\nXlhlFZ8/3vYjwZk9zxXU51z+4qIdzgQEM0BT9jU2CPmDDx6leOu3pbiU7EigWzmB\\nh1GuR8K5gLkoGbEPlmo5EpK09r5FjRuKxjOO54648QKBgQDqUFfOeFf2RsY46oEG\\n5Uhz/jD41vA44x+cPp+ngondPVB0bLJ+qfORzCSCfDYBZ/dTzE6fZe2/xm6gM/1B\\nrttJvTKLYf5Ogo9cjjPbwgKAa9cvvDyx7roX9l1FTC3HAeD7MRX+7i9sp/958kTh\\nzN8sIi5OFh9vr5ToTcxjV0NF+QKBgQDiHBj/zw3mMz8IVv6S711QTxO+k435AwMT\\nkNYuGuWszC7kvigaziLBnEitVUsdeo8aga0PaG+fII2B7XHJyEBxrOUM9VJ/WtBn\\nT+rlyboNmBEHuPo6ZB8Z71yIXBlBDVh9WE4M/eKTEUX41i7kJ5PMnI5usDSHvDRv\\n59qF9kwg8QKBgQCPWe4ObIPsMSqOobGkpVvpUwdlBiLbuuCY95s3oV51E1EImYOu\\niI1ykoF3r0RfIdsn0mP7kyGcZWtC6eu0ZqTUfULSEXbDU48f4gQKG6zqIo/5LWG4\\nvkPt6xTvE4ciLJ0XMNWzLMeo4zMiyTypJG0ZFCReM5yx+KrSYN59nGKVCQKBgQCT\\nsTbDIUQ68Y5irDBtWdzh8EU9XrSFyunfhePhCcCsNlMLJwqbN7qMLMFsNyJxhvSi\\no8GfJuCCWIkWLTr+SseNeRnEdRoGBhPK5/DPWA0nhATbvn/0VCHclvUiPMZiL411\\nkpCo+81bsxS5jW3jqdZo+How4vftEYpO7mtWxaLEgQKBgQDXiiJ/joPD/Bota67o\\n2iTiHz9zSXHJzIzgYu/c3RUFG90dZOHOVOlh1nsmBI9I8XgDgIiImKzyljYRZ8CI\\nOYBm/b268M1FR7FeiKh0SpYRcItofnWtvHqsrAPUA6cxGdNy3Eb5SyKG1s5eONdH\\nciDQsOQkrdJOf+/2Je9t+zWxdQ==\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"firebase-adminsdk-181jj@maxba-ibet-mobile.iam.gserviceaccount.com\",\n  \"client_id\": \"100337811041338631224\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-181jj%40maxba-ibet-mobile.iam.gserviceaccount.com\",\n  \"universe_domain\": \"googleapis.com\"\n}"
+  v1Api:
+    enabled: true
+    url: https://fcm.googleapis.com/v1/projects/maxba-ibet-mobile/messages:send

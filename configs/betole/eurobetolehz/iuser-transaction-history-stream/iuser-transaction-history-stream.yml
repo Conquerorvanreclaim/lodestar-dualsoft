@@ -1,0 +1,12 @@
+kafka:
+  client-id:
+    hz
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2
+
+input-topic: CDC_IC_USER_ACCOUNT_TRANSACTION
+
+ttlWeekDays: 7
+ttlMonthDays: 31

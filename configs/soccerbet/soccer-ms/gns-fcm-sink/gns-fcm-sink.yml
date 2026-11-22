@@ -1,0 +1,18 @@
+kafka:
+  client-id:
+    gns-fcm-sink-soccer-ms
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+firebase:
+  serverKey: AAAA-ikb_Z4:APA91bGuJubBWfINcyr651TAwxZ2rQX3O2ByuCMjXD5dHPPJtOsAXN_rBjW_FPiykIsdR-TzIODUEjITlzb7DqXEfMdrAT6DfoSUQkXNd_dS-RwglUFeFVbjeSfS5LbgGfXspxyeOYgx
+  url: https://fcm.googleapis.com/fcm/send
+  sdk:
+    config: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"soccerbet-mobile\",\n  \"private_key_id\": \"401b6ef335a30fe13f9af75c9f11a00955998e55\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCpewlbdrqlMyx0\\n0EhJ+MkymXTBFKYilc/NNrI+KgC1WkjHP6EOfAirA3alohT1DCeGq7lOlQ+JTkDO\\nhxZkrrkQ9uxoW7C5ThFSj3wFHwgOxgKqSQ4BwLznx61ymW4Lj8bpyDrFfPCRmzpU\\n7ILiWTwAboJuc6f1yoeJEZdL1bUOjocZv8QK3KN/4M2OJF06eSXxAtdYPkJsx3bi\\neMIIRx4aszYyrIOM7iaVXkqunongvedWm2ugE6DbKUwjhFGTG40rioVp6CXp+CfQ\\nOJZSJB0rsKgExGT44EWAYd2Nh8mkQDorgSzxv1IIOJKYc97zy4HmSEwSdZ9f5kfl\\nNjZzIeLDAgMBAAECggEAITIQrKIOP9JMqFqtdhOtMOR+ylzFh6upRowqkGOAvQTA\\nkYpEfQZNWlW01Q9wpGiri0SyaJJotx+lMO6js7fHVuvOdUhUTo9cdDvXcldYKDCf\\nkAP8ItrCBXIGZpZnyAryzpKh9FGa+yIY5E5o+nW4+2qp0IGFye5P6siPxlJHAuEV\\nGgvwHumHWgIRgIqj4I7tTP/vpZQVpm7qC9OS3tGQe9y2Htz6iK4vAhN4SCoPlxft\\nfV41pOgkYgR0ncwBItfAWtDFFx9zDtytOJve4FZ/H7YHnQIfMBTQHHSX6LgHZh8r\\nx+rVaM+Gz65clZ3QhbhLUcxmjGzUO3W1lbss8NYPXQKBgQDcYIEWGaZXMBl7rfeX\\nNoLB4+QtBrrEA1G6uoZ3kdUXTDdzRgZ0DYpV5g+yH/VuGOAs8Gvf9dAUW9xRuXGk\\ncAtb1b5HTeLM+Fl+66M0BJUQNWzfOjEuaU99T1pbHNzlhZ9ZgrKwQgFYbecoeliO\\nSUJKtl7GqeWq8/L74mqeLpx6VwKBgQDE4F9aWoTRpAUdCL8RZYSocA2NGfeocRY8\\n2q8ywKAMnxg8TomdHFFsgVk37hyN4dyUaVzYnQQS8195Bzt9w93xKrK/SINiaR1E\\nXSXcv+e/m7/0KrdYnp9i8eKjK6fT1UQnZ+jLpgBLIE1wx2+VACfQAm/9oQ2+MMfA\\nDRxUxRgvdQKBgHMoIowv3xIUWlycrZJgs7cppKQ6rgGbUmvm6Dk3BUjlVNxxrRGb\\nubvlOjJ0LMXZTdttzpD7XD4nOluiMdYhjm3wpTuRYYCGDg4ah++4rUQJBtknCWgd\\nM6Jhgu+1h2CQkJIvj7w24YkZ9P7b38aKVY/A+ImLYi4Qx9oDmH8MEEyFAoGBAMIe\\nZYZmWC2I5w3QsOxLR7j4+zOUVg/8qSuJiFOngGfReokD+0YxRMuS4lB2dCsld2PS\\nW5ytfPXeh9WC3xLLTIvdSO+4ZOtkr1nX6lw10CCqRmNOtwcnKArca1Xt1oXU82VT\\nXENoQ0PP7utzib7Fr3u224ueADn2SQ5BHx0qVQV9AoGBAKp3PfGOghuprxCw6RZK\\nXF4C1rc/6soJqYRDx5F7hs1d4o+4e4Iw7S8puUpVcrKMJI41hCiFP3+wNU2SOczh\\nV6qQkI3FfhbuKgW1W05c4CVwBVPAf445zuWdA2ZtU2+n0Wpd+nXnEu27+OGyIqfF\\nkwU44pU6YKSKDgH4fLDXKiiC\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"firebase-adminsdk-dyomw@soccerbet-mobile.iam.gserviceaccount.com\",\n  \"client_id\": \"115706165720371347904\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-dyomw%40soccerbet-mobile.iam.gserviceaccount.com\",\n  \"universe_domain\": \"googleapis.com\"\n}"
+  v1Api:
+    enabled: true
+    url: https://fcm.googleapis.com/v1/projects/soccerbet-mobile/messages:send

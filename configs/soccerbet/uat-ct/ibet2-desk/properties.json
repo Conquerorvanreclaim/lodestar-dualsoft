@@ -1,0 +1,28 @@
+{
+   "instanceCode":"soccerrs",
+   "luckySixIFrameResizerUrl":"https://assets.nsoft-cdn.com/public/cdn/iframe-resizer/3.4.0/script.js",
+   "context":"ibet",
+   "context_ibet2":"restapi",
+   "version":"${IBET2_DESK_APPS_VERSION}",
+   "dataCompressEnabled":"true",
+   "googleMaps.apiKey": "",
+   "googleTagsId": "",
+   "clickDimensionTagsId": "",
+   "zoomAnalyticsId": "",
+    "airtelUSSDOnly": "false",
+    "prefixNumber": "254",
+    "firebase.web.apiKey": "AIzaSyAN9MbRixAeehWCyX6PW1-Q_eyBKm_4UTs",
+    "firebase.web.authDomain": "ibet-mobile.firebaseapp.com",
+    "firebase.web.databaseURL": "https://ibet-mobile.firebaseio.com",
+    "firebase.web.projectId": "ibet-mobile",
+    "firebase.web.storageBucket": "ibet-mobile.appspot.com",
+    "firebase.web.messagingSenderId": "439955750119",
+    "firebase.web.appId": "1:439955750119:web:e5dee2f0ab6c31a899b642",
+    "firebase.web.measurementId": "G-GLJ7VNEXL0",
+    "firebase.web.vapidKey": "BN70Sh3MOqv1XkYklart4lrGlvLLCd8XQUH5vL9fsxCqdNHIWwyK2BrRcG6ddqKDhCZuQILcKeQ6CaEdr9rYaFU",
+    "postaffiliateproId": "",
+    "postaffiliateproSrc": "",
+    "additionalGoogleTagsId": ""
+
+}
+

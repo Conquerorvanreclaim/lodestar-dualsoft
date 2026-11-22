@@ -1,0 +1,5 @@
+sitemap:
+    client: soccer
+    host: "https://soccer-uat.dualsoft.io"
+    deafult:
+        lang: sr

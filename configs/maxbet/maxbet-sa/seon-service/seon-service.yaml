@@ -1,0 +1,64 @@
+timezone: Europe/Belgrade
+
+hub:
+  url: http://iuser-hub.ps:8080/iuser-hub/
+  coUser:
+    username: seon
+    password: seon
+  application:
+    name: seon-service
+  language: en
+
+restTemplate:
+  connectionTimeout: 30000
+  readTimeout: 30000
+  
+seon:
+  service:
+    url: https://api.seon.io/SeonRestService/fraud-api/v2
+    licenceKey: 3cfa2077-f25c-4ba6-bef8-fc1e4caadcfb
+
+processMessages:
+  start: true
+  fixedDelayMs: 5000
+  dateFromOffsetMinutes: 10
+  dateToOffsetMinutes: 0
+  rowFetchLimit: 5
+
+retryMessages:
+  start: true
+  fixedDelayMs: 15000
+  dateFromOffsetMinutes: 60
+  dateToOffsetMinutes: 10
+  rowFetchLimit: 5
+  retryCounterLimit: 2
+
+request:
+  config:
+    ip:
+      send: true
+      include: flags,history,id
+      api:
+        version: v1
+        timeout: 2300
+    email:
+      send: true
+      include: flags,history,id
+      api:
+        version: v2
+        timeout: 2300
+    phone:
+      send: true
+      include: flags,history,id
+      api:
+        version: v1
+        timeout: 2300
+    deviceFingerprint:
+      send: true
+    ignore:
+      velocity:
+        rules: false
+
+user:
+  attribute:
+    code: seon_fraud_check_status

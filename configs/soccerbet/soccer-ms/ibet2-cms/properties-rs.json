@@ -1,0 +1,9 @@
+{
+  "DATABASE_URL":"mongodb://cms-soccer:At3D1d9WRQ2y@mongodb-ms-soccer.dualsoft.io:27017/cms-soccer?replicaSet=replicaSet",
+  "PAYLOAD_SECRET":"639c01d8a55d2bf99ee2e3dd",
+  "CDN_MEDIA_URL":"https://cdn-cms.soccerbet.rs/media/",
+  "NEXT_PUBLIC_SITE_URL_RS":"https://soccerbet.rs",
+  "NEXT_PUBLIC_SITE_URL_BA":"https://soccerbet.ba",
+  "NEXT_PUBLIC_SITE_URL_ME":"https://soccerbet.me",
+  "CORS_ORIGINS":"https://www.soccerbet.rs,https://www.soccerbet.ba,https://www.soccerbet.me,https://ifs-demo-rs.dualsoft.io,https://ifs-demo-cg.dualsoft.io,https://localhost,capacitor://localhost,https://ifs-demo-ba.dualsoft.io,https://cms-soccer-cg.dualsoft.io"
+}

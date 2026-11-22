@@ -1,0 +1,16 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra-mk@maxbet.rs
+ to: betsrv@dualsoft.net,milos.s@dualsoft.net
+ 
+
+kafka:
+  clientId:
+   suffix: mk
+  instances: 
+
+

@@ -1,0 +1,109 @@
+sitemap:
+    client: soccer
+    host: "https://www.soccerbet.rs"
+    deafult:
+        lang: sr
+
+book: 10
+annex: 0
+location_code: 10000
+in_hours_list: 1,3
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 0/30 * * * *"
+redis:
+    database_number: 10
+translation_instance_code: soccerrs    
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+#Elastic
+match_search_result_size: 1500
+matches_in_next_hours: 24
+#============ Sitemap content - Start =============
+config:
+    sitemap_kategorije:
+        sr:
+            - "https://www.soccerbet.rs/sr/kladjenje"
+            - "https://www.soccerbet.rs/sr/uzivo-kladjenje/mecevi/fudbal/S"
+            - "https://www.soccerbet.rs/sr/rezultati"
+            - "https://www.soccerbet.rs/sr/lobi-sve"
+            - "https://www.soccerbet.rs/sr/gambling-uzivo/srb_live"
+            - "https://www.soccerbet.rs/sr/gambling/srb_slot"
+            - "https://www.soccerbet.rs/sr/gambling-uzivo/srb_prov"
+            - "https://www.soccerbet.rs/sr/brojevi-i-virtuali/srb_virt"
+            - "https://www.soccerbet.rs/sr/info/pravila-koriscenja"
+            - "https://www.soccerbet.rs/sr/info/info-o-nama"
+            - "https://www.soccerbet.rs/sr/info/info-poslovnice"
+            - "https://www.soccerbet.rs/sr/info/info-mec-specijal"
+            - "https://www.soccerbet.rs/sr/info/info-antepost"
+            - "https://www.soccerbet.rs/sr/info/info-iskljucene-teritorije"
+            - "https://www.soccerbet.rs/sr/info/promo"
+            - "https://www.soccerbet.rs/sr/info/info-odgovorno-kladjenje"
+            - "https://www.soccerbet.rs/sr/info/info-sportsko-kladjenje"
+            - "https://www.soccerbet.rs/sr/info/info-gambling-igre"
+            - "https://www.soccerbet.rs/sr/info/info-kontakt"
+            - "https://www.soccerbet.rs/sr/info/download"
+        # en:
+        #     - "https://www.soccerbet.rs/en/results"
+        #     - "https://www.soccerbet.rs/en/lobby-all"
+        #     - "https://www.soccerbet.rs/en/live-gambling/srb_live"
+        #     - "https://www.soccerbet.rs/en/gambling/srb_slot"
+        #     - "https://www.soccerbet.rs/en/live-gambling/srb_prov"
+        #     - "https://www.soccerbet.rs/en/virtuals/srb_virt"
+        #     - "https://www.soccerbet.rs/en/info/promo"
+        #     - "https://www.soccerbet.rs/en/info/info-o-nama"
+        #     - "https://www.soccerbet.rs/en/info/info-poslovnice"
+        #     - "https://www.soccerbet.rs/en/info/info-mec-specijal"
+        #     - "https://www.soccerbet.rs/en/info/info-antepost"
+        #     - "https://www.soccerbet.rs/en/info/info-iskljucene-teritorije"
+        #     - "https://www.soccerbet.rs/en/info/promo"
+        #     - "https://www.soccerbet.rs/en/info/info-odgovorno-kladjenje"
+        #     - "https://www.soccerbet.rs/en/info/info-sportsko-kladjenje"
+        #     - "https://www.soccerbet.rs/en/info/info-gambling-igre"
+        #     - "https://www.soccerbet.rs/en/info/info-pomoc"
+        #     - "https://www.soccerbet.rs/en/info/info-kontakt"
+        #     - "https://www.soccerbet.rs/en/info/download"
+    sitemap:
+        prematch:
+            sport-matches:
+                sr: "https://www.soccerbet.rs/sr/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id"
+                # en: "https://www.soccerbet.rs/en/sport-betting/offer/matches/$sport-name/$sport-id"
+        casino:
+            game:
+                sr: "https://www.soccerbet.rs/sr/igra/$provider/$game-id/$game-name"
+                # en: "https://www.soccerbet.rs/en/game/$provider/$game-id/$game-name"
+#============ Sitemap content - End =============
+#============ Robots.txt content - Start =============
+robots:
+    content:
+        - "User-agent: *"
+        # - "Disallow: /"
+        - "Disallow: /sr/prijava"
+        - "Disallow: /sr/registracija"
+        # - "Disallow: /en/login"
+        # - "Disallow: /en/registration"
+        - "Disallow: /*utm_"
+        - "Disallow: /*gclid="
+        - "Disallow: /*fbclid="
+        - "Disallow: /search"
+        - "Sitemap: https://www.soccerbet.rs/sitemap/sitemap_index.xml"
+#============ Robots.txt content - End =============
+
+server: 
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false
+    servlet:
+        context-path: /sitemap 
+spring:
+    application:
+        name: ibet2-sitemap
+spring.main.allow-bean-definition-overriding: true
+
+externalCasinoImagesURL: https://cdn.soccerbet.rs/v1/
+casinoImagesSourcePriority: external#casinoImages
+casinoImagesDefaultExtension: jpg

@@ -1,0 +1,42 @@
+kafka:
+  client-id:
+    group-notification-stream-hz-1
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  result_change:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+          useUnderscore: true
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+egt:
+    jackpot_url: "http://stats.egtmgs.com/jackpot_Oktagonbet_RSD.json"
+    enabled_jackpot: true
+
+egt_digital:
+    jackpot_url: ""
+    enabled_jackpot: false
+    instance_name: ""

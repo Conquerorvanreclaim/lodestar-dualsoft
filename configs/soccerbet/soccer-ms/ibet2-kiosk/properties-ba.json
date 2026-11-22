@@ -1,0 +1,8 @@
+{
+   "instanceCode":"demosoccerba",
+   "luckySixIFrameResizerUrl":"https://assets.nsoft-cdn.com/public/cdn/iframe-resizer/3.4.0/script.js",
+   "context":"ibet",
+   "context_ibet2":"restapi",
+   "version":"${IBET2_KIOSK_APPS_VERSION}",
+   "dataCompressEnabled":"true"
+}

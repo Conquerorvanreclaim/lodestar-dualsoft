@@ -1,0 +1,62 @@
+kafka:
+  client-id:
+    group-notification-stream-okta-oci-1
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+cassandra:
+  cluster_name: ibet-okta-oci-cassandra-cluster
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  result_change:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+# Oktagon
+format:
+  match_result:
+    scored_point:
+      wrapper: "[%s]"
+    title:
+      finished: "Match finished"
+      pause: "%p finished"
+      result: 
+        inc: "Goal!"
+        dec: "Score correction"
+    body:
+      finished: "%h - %a %sh:%sa"
+      pause: "%h - %a %sh:%sa"
+      result: "%h - %a %sh:%sa"
+
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+          useUnderscore: true
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+            
+egt:
+    # jackpot_url: "https://oktagonbet.games.amusnet.io/jackpot-stats/statistics/680355068236688384"
+    # enabled_jackpot: true
+
+firebase:
+  v1Api:
+    enabled: true

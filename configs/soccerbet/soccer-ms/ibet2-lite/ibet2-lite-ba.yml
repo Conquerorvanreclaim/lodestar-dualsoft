@@ -1,0 +1,37 @@
+instance: soccerba
+translation_instance_code: soccerrs
+aditional_instance_codes_for_login: 
+book: 10
+annex: 0
+location_code: 50001
+in_hours_list: 1,3
+app_language: ba
+
+remote:
+    ibet:
+
+        recoveryPassword:
+            url: https://www.soccerbet.ba/ibet/resetPassword.json
+
+        gameDescription:
+            url: https://www.soccerbet.ba/ibet/getAllOdBetPickGroups.json
+        setPassword:
+            url: https://www.soccerbet.ba/ibet/user/setActivationPassword.json
+        express:
+            ticket:
+                url: https://www.soccerbet.ba/ibet/ticket/getTranslatedXTicketByUuid.json
+        requestDeposit:
+            url: https://www.soccerbet.ba/ibet/asoft/checkRequest.json
+            secretKey: t2KlZGh2319Fjhxq3
+
+
+        referer:
+
+
+
+ticketViewerMaxConnections: 250
+ticket:
+    viewer:
+        password: 2023livesoccerba
+        username: livesoccerba
+        url: http://ticket-viewer.ps:8080/ticket-viewer/

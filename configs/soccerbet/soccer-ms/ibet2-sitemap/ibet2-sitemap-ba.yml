@@ -1,0 +1,155 @@
+sitemap:
+    client: soccer
+    host: "https://www.soccerbet.ba"
+    deafult:
+        lang: ba
+
+book: 10
+annex: 0
+location_code: 10000
+in_hours_list: 1,3
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 0/30 * * * *"
+redis:
+    database_number: 10
+translation_instance_code: soccerrs    
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+#Elastic
+match_search_result_size: 1500
+matches_in_next_hours: 24
+#============ Sitemap content - Start =============
+config:
+    sitemap_kategorije:
+        ba:
+            - "https://www.soccerbet.ba/ba/kladjenje"
+            - "https://www.soccerbet.ba/ba/sportsko-kladjenje"
+            - "https://www.soccerbet.ba/ba/uzivo-kladjenje"
+            - "https://www.soccerbet.ba/ba/rezultati"
+            - "https://www.soccerbet.ba/ba/lobi-sve"
+            - "https://www.soccerbet.ba/ba/lobi/ba_live"
+            - "https://www.soccerbet.ba/ba/kazino/ba_slot"
+            - "https://www.soccerbet.ba/ba/lobi/ba_prov"
+            - "https://www.soccerbet.ba/ba/virtuelne-igre/ba_virt"
+            - "https://www.soccerbet.ba/ba/info/pravila-koriscenja"
+            - "https://www.soccerbet.ba/ba/info/info-o-nama"
+            - "https://www.soccerbet.ba/ba/info/info-poslovnice"
+            - "https://www.soccerbet.ba/ba/info/info-mec-specijal"
+            - "https://www.soccerbet.ba/ba/info/info-antepost"
+            - "https://www.soccerbet.ba/ba/info/info-iskljucene-teritorije"
+            - "https://www.soccerbet.ba/ba/info/promo"
+            - "https://www.soccerbet.ba/ba/info/info-odgovorno-kladjenje"
+            - "https://www.soccerbet.ba/ba/info/info-sportsko-kladjenje"
+            - "https://www.soccerbet.ba/ba/info/info-gambling-igre"
+            - "https://www.soccerbet.ba/ba/info/info-kontakt"
+            - "https://www.soccerbet.ba/ba/info/download"
+        # en:
+        #     - "https://www.soccerbet.ba/en/results"
+        #     - "https://www.soccerbet.ba/en/lobby-all"
+        #     - "https://www.soccerbet.ba/en/live-gambling/ba_live"
+        #     - "https://www.soccerbet.ba/en/gambling/ba_slot"
+        #     - "https://www.soccerbet.ba/en/live-gambling/ba_prov"
+        #     - "https://www.soccerbet.ba/en/virtuals/srb_virt"
+        #     - "https://www.soccerbet.ba/en/info/promo"
+        #     - "https://www.soccerbet.ba/en/info/info-o-nama"
+        #     - "https://www.soccerbet.ba/en/info/info-poslovnice"
+        #     - "https://www.soccerbet.ba/en/info/info-mec-specijal"
+        #     - "https://www.soccerbet.ba/en/info/info-antepost"
+        #     - "https://www.soccerbet.ba/en/info/info-iskljucene-teritorije"
+        #     - "https://www.soccerbet.ba/en/info/promo"
+        #     - "https://www.soccerbet.ba/en/info/info-odgovorno-kladjenje"
+        #     - "https://www.soccerbet.ba/en/info/info-sportsko-kladjenje"
+        #     - "https://www.soccerbet.ba/en/info/info-gambling-igre"
+        #     - "https://www.soccerbet.ba/en/info/info-pomoc"
+        #     - "https://www.soccerbet.ba/en/info/info-kontakt"
+        #     - "https://www.soccerbet.ba/en/info/download"
+    sitemap:
+        prematch:
+            sport-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/matches/$sport-name/$sport-id"
+            group-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/matches/$sport-name/$sport-id/$group-name/$group-id"
+            league-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/mecevi/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/matches/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+            sport-leagues:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/lige/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/leagues/$sport-name/$sport-id"
+            group-leagues:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/lige/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/leagues/$sport-name/$sport-id/$group-name/$group-id"  
+            match:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/ponuda/mec/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/offer/match/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+        players:
+            sport-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/matches/$sport-name/$sport-id"
+            group-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/matches/$sport-name/$sport-id/$group-name/$group-id"
+            league-matches:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/mecevi/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/matches/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id"
+            sport-leagues:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/lige/$sport-name/$sport-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/leagues/$sport-name/$sport-id"
+            group-leagues:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/lige/$sport-name/$sport-id/$group-name/$group-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/leagues/$sport-name/$sport-id/$group-name/$group-id"
+            match:
+                ba: "https://www.soccerbet.ba/ba/sportsko-kladjenje/igraci/mec/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+                #en: "https://www.soccerbet.ba/en/sport-betting/players/match/$sport-name/$sport-id/$league-name/$league-id/$match-name/$match-id"
+        league:
+            league:
+                ba: "https://www.soccerbet.ba/ba/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/naredni"
+                #en: "https://www.soccerbet.ba/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/upcoming"
+            prematch-match:
+                ba: "https://www.soccerbet.ba/ba/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/naredni/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.ba/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/upcoming/match/$match-name/$match-id"
+            players-match:
+                ba: "https://www.soccerbet.ba/ba/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/igraci/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.ba/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/players/match/$match-name/$match-id"
+            antepost-match:
+                ba: "https://www.soccerbet.ba/ba/kladjenje/liga/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/antepost/mec/$match-name/$match-id"
+                #en: "https://www.soccerbet.ba/en/betting/league/$sport-name/$sport-id/$group-name/$group-id/$league-name/$league-id/outrights/match/$match-name/$match-id"
+        casino:
+            game:
+                ba: "https://www.soccerbet.ba/ba/igra/$provider/$game-id/$game-name"
+                #en: "https://www.soccerbet.ba/en/game/$provider/$game-id/$game-name"
+#============ Sitemap content - End =============
+#============ Robots.txt content - Start =============
+robots:
+    content:
+        - "User-agent: *"
+        # - "Disallow: /"
+        - "Disallow: */prijava*"
+        - "Disallow: */registracija*"
+        - "Disallow: *ba/kladjenje/omiljeno*"
+        - "Disallow: *ba/kladjenje/pretraga*"
+        - "Disallow: *ba/kladjenje/tiket*"
+        - "Disallow: *ba/kladjenje/status-tiketa*"
+        - "Sitemap: https://www.soccerbet.ba/sitemap/sitemap_index.xml"
+#============ Robots.txt content - End =============
+
+server: 
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false
+    servlet:
+        context-path: /sitemap 
+spring:
+    application:
+        name: ibet2-sitemap
+spring.main.allow-bean-definition-overriding: true
+
+externalCasinoImagesURL: https://cdn.soccerbet.rs/v1/
+casinoImagesSourcePriority: external#casinoImages
+casinoImagesDefaultExtension: jpg

@@ -1,0 +1,22 @@
+kafka:
+  client-id:
+    ins-fcm-sink-soccer-uat-ct
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+ibet2:
+  push:
+    deafult:
+      url: /
+  deposit:
+    url: /
+  betting: 
+    url: /
+
+firebase:
+    serverKey: 
+    url: https://fcm.googleapis.com/fcm/send

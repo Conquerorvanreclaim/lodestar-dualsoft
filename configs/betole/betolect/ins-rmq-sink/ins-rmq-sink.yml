@@ -1,0 +1,13 @@
+kafka:
+  client-id:
+    ins-rmq-sink-ct
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+rabbit:
+    exchange: IBET_LIVE_USER
+    messageTtl: 300000

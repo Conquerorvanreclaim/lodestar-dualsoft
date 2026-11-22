@@ -1,0 +1,13 @@
+kafka:
+  client-id:
+    ins-fcm-sink
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+firebase:
+    serverKey: AAAAv1troMw:APA91bH7vSL_xE5PKLPpQRk0Kl94DHKyWqBfcf_ZgKAoQSTQFm6PrNtOz3WOdshmRD8Nu-yUWTOIW0sBeYzxtwsebn74UV62fQbZJK59iqkbtPxURuKXewgE3t2eALhyseXTICnNOTct
+    url: https://fcm.googleapis.com/fcm/send

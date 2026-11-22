@@ -1,0 +1,7 @@
+kafka:
+  client-id:
+    soccer-uat-ct
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2

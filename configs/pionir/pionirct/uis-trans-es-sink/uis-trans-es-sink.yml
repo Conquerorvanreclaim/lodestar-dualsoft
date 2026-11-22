@@ -1,0 +1,7 @@
+kafka:
+  numOfThreads: 8
+  clientId:
+    suffix: pionir-ct
+deleteIndices:
+  enabled: true
+  olderThanInDays: 70

@@ -1,0 +1,17 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra-sbb@oktagonbet.rs
+ to: betsrv@dualsoft.net
+
+
+kafka:
+  bootstrap-servers: k2p.dualsoft.net:9092,k3p.dualsoft.net:9092,k4p.dualsoft.net:9092,k5p.dualsoft.net:9092,k6p.dualsoft.net:9092
+  clientId:
+   suffix: oktahz
+  instances:
+
+ttlInDaysForMonthHistoryTables: 31

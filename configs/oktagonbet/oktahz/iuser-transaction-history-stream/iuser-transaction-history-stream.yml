@@ -1,0 +1,10 @@
+kafka:
+  client-id:
+    oktahz
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 2
+
+ttlWeekDays: 7
+ttlMonthDays: 31

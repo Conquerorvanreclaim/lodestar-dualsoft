@@ -1,0 +1,23 @@
+database:
+  client-id: affiliate
+  program: Affiliate service
+  terminal: affiliate
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+logate:
+  users-limit: 100
+  max-days-between-dates: 100
+  max-days-in-past: 1000
+
+useNetreferId: true
+soccerbet:
+  xApiKey: 
+withdrawal:
+  xApiKey: 
+
+cloudwalker:
+  xApiKey: YTzifbs6UO2JOUZ8CLaAJp7
+  batchSize: 2000
+  coldUserId: new_user_recommendations

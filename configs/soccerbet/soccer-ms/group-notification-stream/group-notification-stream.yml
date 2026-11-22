@@ -1,0 +1,84 @@
+kafka:
+  client-id:
+    group-notification-stream-soccer-ms
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+cassandra:
+  cluster_name: group-notification-stream-cassandra-cluster
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  result_change:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+# Format of fcm match result message
+# Wildcards: %h -> home, %a -> away, %p -> phase, %wp -> wrapped phase in parentheses, %m -> matchCode, %sh -> homeScore, %sa -> awayScore, %t -> the team who scored
+
+format:
+  match_result:
+    scored_point:
+      wrapper: "[%s]"
+    title:
+      finished: "Match finished"
+      pause: "%p finished"
+      result: 
+        inc: "Goal!"
+        dec: "Score correction"
+    body:
+      finished: "%h - %a %sh:%sa"
+      pause: "%h - %a %sh:%sa"
+      result: "%h - %a %sh:%sa"
+
+spring:
+  application:
+    name: group-notification-stream
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 2
+          retentionMs: 7200000
+          useUnderscore: true
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+
+egt:
+    jackpot_url: "EGT_RS@https://soccerbetrs.games.amusnet.io/stats/jackpot_Soccerbet_RSD.json#EGT_EUR@https://soccerbetme.games.amusnet.io/stats/jackpot_SoccerbetME_EUR.json"
+    enabled_jackpot: false
+
+topic:
+  subscribe_to_results: false
+
+firebase:
+  v1Api:
+    enabled: true
+
+egt_digital:
+    jackpot_url: "EGT_DIG_RSD@https://socccerbetrs-api-prod-bgsp.egt-ong.com/api/jackpot/stats#"
+    enabled_jackpot: false
+    instance_name: "Bell Link"
+
+synot:
+    jackpot_url: "SYNOT_RS@https://neomt02ca.syngamtech.com/v1.11/ProgressiveBonus/SoccerbetRSDual/GetInfo"
+    enabled_jackpot: false
+    instance_name: "SYNOT_RS@SoccerBetProgressiveBonus"
+    secret_key: "SYNOT_RS@wkgMgQWMW4KKHbqO7H0O"
+
+jackpot:
+  setFirstnameAndIdForWinner: true

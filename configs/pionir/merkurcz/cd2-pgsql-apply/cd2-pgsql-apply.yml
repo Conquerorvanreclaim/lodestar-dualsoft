@@ -1,0 +1,74 @@
+cdc:
+ apply:
+  instance:
+  table-name-prefix:
+
+kafka:
+  clientId:
+   suffix: merkur-cz
+  numOfStreamThreads: 4
+  instances:
+   - ALL
+   - MERKURCZ
+
+database:
+ username: pionir
+ password: pionir
+ type: postgresql
+ url: jdbc:pgsql://db1-cz.pionir.io:5432/merkurxtip
+ driver-class-name: com.impossibl.postgres.jdbc.PGDriver 
+ client-id: cd2
+ program: CD2 PGSQL apply service
+ terminal: cd2pgsql
+ min-idle: 1
+ max-idle: 2
+ max-active: 4
+
+target-tables:
+    tables:
+    - name: OD_BET
+    - name: OD_BET_FORMAT
+    - name: OD_BET_LINE
+    - name: OD_BET_PICK
+    - name: OD_BET_PICK_GROUP
+    - name: OD_CBL_AUTH_PARAMS
+    - name: OD_CBL_BLOCKADES
+    - name: OD_CBL_LIMITS
+    - name: OD_CBL_CONDITIONS
+    - name: OD_BOOK
+    - name: OD_BOOK_ANNEX
+    - name: OD_SPORT
+    - name: OD_LEAGUE
+    - name: OD_TEAM
+    - name: OD_LEAGUE_ANNEX
+    - name: OD_LEAGUE_TABLE
+    - name: OD_LEAGUE_GROUP
+    - name: OD_ROUND
+    - name: OD_MATCH
+    - name: OD_MATCH_ANNEX
+    # - name: OD_MATCH_LIVE
+    # - name: OD_MATCH_LIVE_BET
+    - name: CO_COUNTRY
+    - name: CO_PREVOD
+    - name: CO_PREVOD_JEZIK
+    - name: CO_PROVIDER
+    - name: CO_PARAMETER
+    - name: CO_PARAMETER_GROUP
+    - name: CO_PARAMETER_LOCATION
+    - name: CO_PARAMETER_TERMINAL
+    - name: CO_PARAMETER_IUSER
+#    - name: IC_PARAMETER
+#    - name: IC_PARAMETER_INSTANCE
+    - name: CO_LOCATION_GROUP
+    - name: CO_LOCATION
+    - name: CO_TERMINAL
+    - name: IC_USER
+    - name: IC_USER_ACCOUNT
+      versionColumn: LSCN
+    - name: IC_USER_ACCOUNT_TRANSACTION
+    - name: IC_USER_BONUS
+    - name: W3_TICKET      
+      versionColumn: MTIME
+    - name: W3_TICKET_MATCH_TYPE
+    - name: W3_JOURNAL 
+    - name: W3_EJOURNAL

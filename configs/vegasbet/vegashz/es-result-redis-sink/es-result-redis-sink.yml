@@ -1,0 +1,15 @@
+kafka:
+  clientId:
+    suffix: vegashz
+  num:
+    stream:
+        threads: 8
+
+redis:
+    databaseNumber: 4
+     
+config:
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000

@@ -1,0 +1,9 @@
+database:
+  client-id: tournament-mgt
+  program: tournament-mgt
+  terminal: tournament-mgt
+
+updateTournamentRoundPositions:
+  fixedDelay: 30000
+  
+rankListAdditionalUsers: 500

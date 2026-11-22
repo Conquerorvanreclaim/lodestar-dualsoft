@@ -1,0 +1,28 @@
+server:
+    servlet:
+        context-path: /w3-agent
+    tomcat:
+        max-threads: 200
+database:
+    client-id: W3AGENT
+    program: w3agent
+    terminal: w3agent
+spring:
+    security:
+        user:
+            name:
+            password:
+            roles: 
+
+btcBaseUrl: 
+authToken: 
+
+ackrila:
+    username: 
+    secretKey: 
+    apiUrl: 
+
+defaultCheckedAdditionalParametersRegistration: true
+
+server.servlet.session.timeout: 28800s
+useTerminalCcy : true

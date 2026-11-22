@@ -1,0 +1,24 @@
+database:
+  client-id: ibet-config-api-service
+  program: IBet config api service
+  terminal: ibet-config-api-service
+  min-idle: 4
+  max-idle: 6
+  max-active: 8
+
+iBetConfigMaxTotalConnections: 20
+iBetConfigMaxConnectionPerRoute: 20
+iBetConfigConnectTimeout: 20000
+iBetConfigReadTimeout: 120000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
+
+ibet-config-api-service:
+  openapi:
+    url: https://localhost:8080
+  api:
+    key: 6ff3be21-ee5a-4bd6-a7a0-53943ecba61f

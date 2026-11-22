@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Context
+	workDir="work/Catalina/localhost/w3Bet"
+	displayName="Welcome to w3Bet"
+	cookies="true"
+	useNaming="true"
+	crossContext="true"
+	reloadable="true"
+	override="true"
+	parallelAnnotationScanning="true"
+	tldValidation="false"
+	antiResourceLocking="false"
+	useBloomFilterForArchives="true"
+	containerSciFilter="WsSci">
+
+	<Resources
+		archiveIndexStrategy="bloom">
+	</Resources>
+
+
+	<!-- ################################################### -->
+	<!-- ### BEGIN SETTINGS FOR REDISSON SESSION MANAGER ### -->
+	<!-- ################################################### -->
+	<Manager
+		className="org.redisson.tomcat.RedissonSessionManager"
+		configPath="${catalina.base}/conf/redisson.conf.yml"
+		readMode="MEMORY"
+		updateMode="DEFAULT"
+		broadcastSessionEvents="false"
+		keyPrefix="w3bet" />
+	<!-- ################################################# -->
+	<!-- ### end settings for redisson session manager ### -->
+	<!-- ################################################# -->
+
+
+	<!-- ######################################### -->
+	<!-- ### BEGIN SETTINGS FOR CONTEXT LOGGER ### -->
+	<!-- ###    logging settings are now in    ############# -->
+	<!-- ###    {$CATALINA_HOME}/conf/loggers.properties ### -->
+	<!-- ################################################### -->
+	<!-- tell the application about the above Logger settings -->
+	<!-- the application can not access these settings directly... -->
+	<Parameter name="log_directory" value="logs" />
+	<Parameter name="log_prefix" value="localhost." />
+	<Parameter name="log_suffix" value=".log" />
+	<Parameter name="catalina_log_prefix" value="catalina." />
+	<Parameter name="catalina_log_suffix" value=".log" />
+	<!-- ####################################### -->
+	<!-- ### end settings for context logger ### -->
+	<!-- ####################################### -->
+
+
+	<!-- ################################################# -->
+	<!-- ### BEGIN SETTINGS FOR CONTEXT AUTHENTICATION ### -->
+	<!-- ################################################# -->
+	<Valve
+		className="com.dualsoft.authenticator.DualsoftFormAuthenticator9"
+		characterEncoding="UTF-8">
+	</Valve>
+	<!-- ############################################### -->
+	<!-- ### end settings for context authentication ### -->
+	<!-- ############################################### -->
+
+
+	<!-- #################################### -->
+	<!-- ### begin settings for IUSER-HUB ### -->
+	<!-- #################################### -->
+	<Parameter name="iuser_hub_enabled" value="false" />
+	<Parameter name="iuser_hub_url" value="http://app.pionir.io/iuser-hub" />
+	<!-- ################################## -->
+	<!-- ### end settings for IUSER-HUB ### -->
+	<!-- ################################## -->
+
+
+	<!-- ################################################# -->
+	<!-- ### BEGIN SETTINGS FOR CONTEXT ACCESSLOGVALVE ### -->
+	<!-- ################################################# -->
+	<Valve
+		className="org.apache.catalina.valves.AccessLogValve"
+		directory="logs"
+		prefix="w3Bet_access_log."
+		suffix=".txt"
+		pattern="%a %l %u %t &quot;%r&quot; %s %b %D %{X-Forwarded-For}i"
+		fileDateFormat="yyyy-MM-dd"
+		rotatable="true">
+	</Valve>
+
+	<!-- tell the application about the above AccessLogValve settings (copy/paste from above) -->
+	<Parameter name="access_log_directory" value="logs" />
+	<Parameter name="access_log_prefix" value="w3Bet_access_log" />
+	<Parameter name="access_log_suffix" value=".txt" />
+	<Parameter name="access_log_pattern" value="%a %l %u %t &quot;%r&quot; %s %b %D %{X-Forwarded-For}i" />
+	<!-- ############################################### -->
+	<!-- ### end settings for context accesslogvalve ### -->
+	<!-- ############################################### -->
+
+
+	<!-- ########################################## -->
+	<!-- ### begin settings for external UPLOAD ### -->
+	<!-- ########################################## -->
+	<!-- iskljucio sam ovaj param, markohm, 14.01.2016
+	     	<Parameter
+		name="external_upload_http"
+		value=""
+	    	override="false" />
+	-->    	
+	<!-- ######################################## -->
+	<!-- ### end settings for external UPLOAD ### -->
+	<!-- ######################################## -->
+
+
+	<!-- ####################################### -->
+	<!-- ### begin settings for BET-ADMIN-WS ### -->
+	<!-- ####################################### -->
+	<Parameter name="bet_admin_ws_url" value="http://app.pionir.io/bet-admin-ws/rest" />
+	<!-- ##################################### -->
+	<!-- ### end settings for BET-ADMIN-WS ### -->
+	<!-- ##################################### -->
+
+
+	<!-- ####################################### -->
+	<!-- ### begin settings for adminEnabled ### -->
+	<!-- ####################################### -->
+	<Environment type="java.lang.String" name="adminEnabled" value="true" />
+	<!-- ##################################### -->
+	<!-- ### end settings for adminEnabled ### -->
+	<!-- ##################################### -->
+
+
+	<!-- ################################ -->
+	<!-- ### begin settings for PAZAR ### -->
+	<!-- ################################ -->
+	<Parameter name="useJooqForTurnover" value="true" />
+	<!-- ############################## -->
+	<!-- ### end settings for PAZAR ### -->
+	<!-- ############################## -->
+
+
+	<!-- ################################################################################## -->
+	<!-- ### begin settings for iBet Balance Subtype [BETTING|BONUSES|DEPOSITS|WALLET]  ### -->
+	<!-- ################################################################################## -->
+	<Parameter name="useJooqForBalanceSubtypes" value="true" />
+	<!-- ##################################################################################### -->
+	<!-- ### end settings for  iBet iBet Balance Subtype [BETTING|BONUSES|DEPOSITS|WALLET] ### -->
+	<!-- ##################################################################################### -->
+
+
+	<!-- ############################################################################### -->
+	<!-- ### begin settings for LOCATIONS, show unpaid tickets from previous rounds  ### -->
+	<!-- ############################################################################### -->
+	<Parameter name="useUnpaidTicketsHintAtLocations" value="false" />
+	<!-- ############################################################################# -->
+	<!-- ### end settings for LOCATIONS, show unpaid tickets from previous rounds  ### -->
+	<!-- ############################################################################# -->
+
+
+	<!-- ################################################ -->
+	<!-- ### BEGIN SETTINGS FOR JNDI DataSource REALM ### -->
+	<!-- ################################################ -->
+	<Realm
+      		className="org.apache.catalina.realm.DataSourceRealm"
+      		dataSourceName="jdbc/BetDB"
+			localDataSource="true"
+			roleNameCol="web_role"
+			userCredCol="passwd"
+			userNameCol="user_name"
+			userRoleTable="korisnik_web_roles"
+			userTable="korisnik">
+	</Realm>
+	<!--<Realm
+      		className="org.apache.catalina.realm.DataSourceRealm"
+      		dataSourceName="jdbc/BetDB"
+			localDataSource="true"
+			roleNameCol="web_role"
+			userCredCol="e_passwd"
+			userNameCol="user_name"
+			userRoleTable="korisnik_web_roles"
+			userTable="korisnik">
+			<CredentialHandler
+				className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+				encoding="utf8"
+				iterations="1"
+				saltLength="0">
+			</CredentialHandler>
+	</Realm>-->
+	<!-- ############################################## -->
+	<!-- ### end settings for jndi datasource realm ### -->
+	<!-- ############################################## -->
+
+	<!-- ################################ -->
+	<!-- ### BEGIN SETTINGS FOR REDIS ### -->
+	<!-- ################################ -->
+	<Environment type="java.lang.String" name="redis.hosts"
+			value="kc1-cz.pionir.io:26379,kc2-cz.pionir.io:26379,kc3-cz.pionir.io:26379" />
+	<Environment type="java.lang.String" name="redis.enabled" value="false" />
+	<Environment type="java.lang.String" name="redis.password" value="imerkurCTredis" />
+	<Environment type="java.lang.String" name="redis.databaseNumber" value="0" />
+	<Environment type="java.lang.String" name="redis.sentinelMasterId" value="merkurct_master" />
+	<Environment type="java.lang.String" name="redis.useSentinel" value="true" />
+	<Environment type="java.lang.String" name="redis.betDataDatabaseNumber" value="3" />
+	<Environment type="java.lang.String" name="redis.betDataReadTimeoutSeconds" value="2" />
+	<Environment type="java.lang.String" name="redis.betDataBetsReadTimeoutSeconds" value="30"  />
+	<Environment type="java.lang.String" name="redis.prematchToLiveBetsEvictSeconds" value="30" />
+	<Environment type="java.lang.String" name="redis.sendPrintDocuments" value="true" />
+	<Environment type="java.lang.String" name="redis.useSsl" value="${redis.useSsl}" />
+	<Environment type="java.lang.String" name="redis.sslVerifyPeer" value="${redis.sslVerifyPeer}" />
+	<Environment type="java.lang.String" name="redis.betsCacheUseHScan" value="true" />
+	<Environment type="java.lang.String" name="redis.betsCacheHScanBatchLimit" value="2500" />
+
+	<!-- ################################ -->
+	<!-- ### BEGIN SETTINGS FOR REDIS ### -->
+	<!-- ################################ -->
+
+
+	<!-- ################################ -->
+	<!-- ### BEGIN SETTINGS FOR KAFKA ### -->
+	<!-- ################################ -->
+	<Environment type="java.lang.String" name="skipMatchLiveSessionCheck" value="true" />
+	<!-- ############################## -->
+	<!-- ### end settings for kafka ### -->
+	<!-- ############################## -->
+
+
+	<!-- ################################################# -->
+	<!-- ### settings for CSV download, various pages  ### -->
+	<!-- ################################################# -->
+	<Parameter name="enableDownloadCsv" value="true" />
+
+
+	<!-- ########################################### -->
+	<!-- ### BEGIN SETTINGS FOR TOMCAT HCCP POOL ### -->
+	<!-- ########################################### -->
+	<Environment
+		type="java.lang.String"
+		override="false"
+		name="hibernate/dialect"
+			value="org.hibernate.dialect.PostgreSQLDialect" />
+	<Environment
+		type="java.lang.String"
+		override="false"
+		name="org/jooq/SQLDialect"
+			value="POSTGRES" />
+	<Resource
+		type="javax.sql.DataSource"
+		auth="Container"
+		name="jdbc/BetDB"
+			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+			driverClassName="org.postgresql.Driver"
+			url="jdbc:postgresql://db1-cz.pionir.io:5432/merkurxtip?currentSchema=public"
+			username="pionir"
+			password="pionir"
+			initialSize="3"
+			maxActive="16"
+			maxIdle="6"
+			minIdle="3"
+			maxWait="10000"
+			testOnBorrow="true"
+			testWhileIdle="true"
+			validationQuery="SELECT 1"
+			logAbandoned="true"
+			removeAbandoned="true"
+			removeAbandonedTimeout="30"
+			minEvictableIdleTimeMillis="1800000"
+			timeBetweenEvictionRunsMillis="900000"
+			jdbcInterceptors="StatementCache(prepared=true,callable=true,max=500)"
+			useStatementFacade="false"
+	>
+	</Resource>
+	<!-- ##################################### -->
+	<!-- ### end settings for commons pool ### -->
+	<!-- ##################################### -->
+
+
+	<!-- ######################################### -->
+	<!-- ### LINK TO >>>PUBLIC<<< COMMONS POOL ### -->
+	<!-- ######################################### -->
+	<ResourceLink
+			name="jdbc/PublicDB"
+			global="jdbc/GlobalPublicDB"
+			type="javax.sql.DataSource">
+	</ResourceLink>
+
+
+	<!-- ###################################################### -->
+	<!-- ### BEGIN SETTINGS FOR >>>INTERNAL<<< COMMONS POOL ### -->
+	<!-- ###################################################### -->
+	<Resource
+		type="javax.sql.DataSource"
+		auth="Container"
+		name="jdbc/InternalDB"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+			url="jdbc:h2:tcp://localhost:8043/./h2/w3bet"
+			username="sa"
+			password=""
+			initialSize="0"
+			maxActive="16"
+			maxIdle="3"
+			minIdle="1"
+			maxWait="5000"
+			driverClassName="org.h2.Driver"
+			logAbandoned="false"
+			removeAbandoned="true"
+			removeAbandonedTimeout="30"
+			timeBetweenEvictionRunsMillis="900000"
+			useStatementFacade="false"
+		>
+	</Resource>
+	<!-- ################################################## -->
+	<!-- ### end settings for >>INTERNAL<< commons pool ### -->
+	<!-- ################################################## -->
+
+
+	<!-- ###################################################### -->
+	<!-- ### BEGIN SETTINGS FOR >>>SHARED<<< WURFL instance ### -->
+	<!-- ###################################################### -->
+	<ResourceLink
+			name="wurfl/SharedWURFL"
+			global="wurfl/SharedWURFL"
+			type="net.sourceforge.wurfl.wurflapi.ObjectsManager">
+	</ResourceLink>
+	<!-- #################################################### -->
+	<!-- ### end settings for >>>SHARED<<< WURFL instance ### -->
+	<!-- #################################################### -->
+
+
+</Context>
+

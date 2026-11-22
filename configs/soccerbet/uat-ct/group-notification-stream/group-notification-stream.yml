@@ -1,0 +1,61 @@
+kafka:
+  client-id:
+    group-notification-stream-soccer-uat-ct
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+cassandra:
+  cluster_name: group-notification-stream-cassandra-cluster
+
+rabbit:
+  jackpot:
+    messageTtl: 300000
+  platform_event:
+    messageTtl: 300000
+
+# Format of fcm match result message
+# Wildcards: %h -> home, %a -> away, %p -> phase, %wp -> wrapped phase in parentheses, %m -> matchCode, %sh -> homeScore, %sa -> awayScore, %t -> the team who scored
+
+format:
+  match_result:
+    scored_point:
+      wrapper: "[%s]"
+    title:
+      finished: "Match finished"
+      pause: "%p finished"
+      result: 
+        inc: "Goal!"
+        dec: "Score correction"
+    body:
+      finished: "%h - %a %sh:%sa"
+      pause: "%h - %a %sh:%sa"
+      result: "%h - %a %sh:%sa"
+
+spring:
+  application:
+    name: group-notification-stream
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: GROUP_NOTIFICATIONS
+          numOfPartitions: 4
+          replicationFactor: 1
+          retentionMs: 7200000
+          useUnderscore: true
+
+ehcache:
+    od_match:
+        ttl:
+            seconds: 120
+    od_league_sport:
+        ttl:
+            seconds: 6000
+
+egt:
+    jackpot_url: ""
+    enabled_jackpot: false

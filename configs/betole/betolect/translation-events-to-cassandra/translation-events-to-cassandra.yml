@@ -1,0 +1,12 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: translation-events-to-cassandra-ct@betole.com
+ to: betsrv@dualsoft.net
+
+kafka:
+  clientId:
+    suffix: ct

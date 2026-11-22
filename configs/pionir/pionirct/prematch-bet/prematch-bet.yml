@@ -1,0 +1,14 @@
+database:
+  client-id: prematch-bet
+  program: prematch-bet
+  terminal: prematch-bet
+
+kafka:
+  clientId:
+    suffix: pionir-ct
+book: 19
+bets: 
+  create: true
+  resolve: true
+#ako je tag prazan dovlaci sve betove kojima je OD_BET.TAG = null u suprotnom se gleda vrednost iz OD_BET.TAG kolone
+betTag: 

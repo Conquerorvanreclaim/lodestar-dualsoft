@@ -1,0 +1,11 @@
+kafka:
+  client-id:
+    bn2
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 2 
+
+
+
+

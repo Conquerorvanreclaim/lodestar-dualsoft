@@ -1,0 +1,4 @@
+database:
+  client-id: resolved-ticket-service
+  program: resolved-ticket-service
+  terminal: resolved-ticket-service

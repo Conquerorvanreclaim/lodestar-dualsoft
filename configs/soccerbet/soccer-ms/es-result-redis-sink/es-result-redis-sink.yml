@@ -1,0 +1,12 @@
+kafka:
+  clientId:
+    suffix: soccer-ms
+  num:
+    stream:
+        threads: 8
+     
+config:
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000

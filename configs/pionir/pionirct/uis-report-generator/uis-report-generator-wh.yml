@@ -1,0 +1,40 @@
+database:
+    username: pionir
+    password: pionir
+    type: oracle
+    url: jdbc:oracle:thin:@//db-sa-scan.pionir.io:1521/piowh1
+    driver-class-name: oracle.jdbc.OracleDriver
+    client-id: uis-report-generator-wh
+    program: uis-report-generator-wh
+    terminal: uis-report-generator-wh
+
+# database:
+#     username: postgres
+#     password: postgres
+#     type: postgresql
+#     url: jdbc:pgsql://omega.dualsoft.net:5432/fairplay
+#     driver-class-name: com.impossibl.postgres.jdbc.PGDriver 
+#     client-id: uis-report-generator
+#     program: uis-report-generator
+#     terminal: uis-report-generator
+
+generateReports: true
+generateReportsFixedDelay: 30000
+
+generateEdpkReport: true
+generateEdpkReportCron: 0 0 1 * * *
+
+generateEdpoiReport: true
+generateEdpoiReportCron: 0 0 1 * * *
+
+generateEmpkReport: true
+generateEmpkReportCron: 0 0 1 1 * *
+
+generateEmpoiReport: true
+generateEmpoiReportCron: 0 0 1 1 * *
+
+generateMopReport: true
+generateMopReportCron: 0 0 1 1 * *
+
+generateDopReport: true
+generateDopReportCron: 0 0 1 * * *

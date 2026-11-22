@@ -1,0 +1,86 @@
+# ===== Tomcat config  ============
+server:    
+    servlet:
+        context-path: /lite
+    #port: 8014
+    compression:
+        enabled: true
+    error:
+        whitelabel:
+            enabled: false 
+spring:
+    freemarker:
+        template-loader-path: classpath:/bDesign/templates
+        suffix: .ftl
+        template_exception_handler: rethrow
+redis:
+    session:
+        hosts: s3-mk.maxbet.rs:6679
+        password: imaxMKredis
+        database: 6
+        pool:
+            maxTotal: 800
+            maxIdle: 400   
+        
+instance: maxmk
+translation_instance_code: maxmk
+aditional_instance_codes_for_login: 
+task_name: maxmk
+book: 1
+annex: 0
+location_code: 5399
+in_hours_list: 1,3
+app_language: mk
+page:
+    limit: 25
+remote:
+    ibet:
+        referer: https://www.maxbet.mk/bet
+        payin:
+            url: 
+        jackpot:
+            url: 
+            payin:
+        resetPassword:
+            url: 
+        resendCode:  
+            url: 
+        register:
+            firstStepUrl: 
+            secondStepUrl: 
+        changePassword:
+            url:
+        setPassword:
+            url: https://www.maxbet.mk/ibet/user/setActivationPassword.json        
+        recoveryPassword:
+            url: https://www.maxbet.mk/ibet/resetPassword.json
+        gameDescription:
+            url: https://www.maxbet.mk/ibet/getAllOdBetPickGroups.json
+    
+africa:
+    talking:
+        username:
+        api_key:
+
+task_executor:
+    core_pool_size: 2
+    max_pool_size: 4
+offer: 
+    scheduling:
+        job.cron: 0 * * * * *
+        
+bet_definitions:
+    scheduling:
+        job:
+            cron: "0 15,45 * * * *"
+
+#============ ELASTIC ======================
+index:
+    mapping:
+        total_fields:
+            limit: 5000
+    max_docvalue_fields_search: 100
+match_search_result_size: 100
+elasticsearch:
+    protocol: http
+

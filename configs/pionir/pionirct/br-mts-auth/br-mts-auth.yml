@@ -1,0 +1,24 @@
+redis:
+  readBetData: true
+
+kafka:
+  clientId:
+    suffix: pionir-ct
+
+mts:
+  sdk:
+    hostname: mtsgate-t1.betradar.com
+    port: 5671
+    vhost: /merkurtip_dualsoft
+    username: merkurtip_dualsoft
+    password: 9XurGHYO3uyJlEaQ
+    node: 1
+    bookmakerId: 31227
+    #accessToken: STCWcWwhx0mwHWzfrL
+
+auth:
+  bookmaker: mtsserverdual
+  password: mtssrvdual
+  bet-engine-url: http://bet-engine:8080/bet-engine
+
+brSkipCashoutQueueArgs: false

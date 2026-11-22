@@ -1,0 +1,8 @@
+database:
+  client-id: iuser-deposit-unlocker
+  program: iuser-deposit-unlocker
+  terminal: iuser-deposit-unlocker
+
+kafka:
+  clientId:
+    suffix: pionir-ct

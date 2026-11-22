@@ -1,0 +1,26 @@
+database:
+  client-id: ticket-viewer
+  program: ticket-viewer
+  terminal: ticket-viewer
+  min-idle: 10
+  max-idle: 10
+  max-active: 10
+
+redis:
+  readBetData: true
+
+server:
+  compression:
+    enabled: true
+    exclude-user-agents:
+      mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+      min-response-size: 2048
+
+cashoutDenied: false      
+
+spring:
+  security:
+    user:
+      name: 
+      password: 
+      roles: 

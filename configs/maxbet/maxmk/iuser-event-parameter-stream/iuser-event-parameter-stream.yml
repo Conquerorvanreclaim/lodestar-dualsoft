@@ -1,0 +1,22 @@
+kafka:
+  client-id:
+    mk
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 2
+
+#rabbit
+rabbit:
+    stomp:
+      hosts: 89.111.245.204:61613
+    exchange:
+        root: IBET_CO_PARAMETER_ROOT
+        group: IBET_CO_PARAMETER_GROUP
+        location: IBET_CO_PARAMETER_LOCATION
+        terminal: IBET_CO_PARAMETER_TERMINAL
+        iuser: IBET_CO_PARAMETER_IUSER
+    messageTtl: 300000
+    compressMessage: true
+
+

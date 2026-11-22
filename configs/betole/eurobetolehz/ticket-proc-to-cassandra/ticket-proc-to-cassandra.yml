@@ -1,0 +1,14 @@
+logging:
+ level:
+  net:
+    dualsoft: DEBUG
+
+email:
+ from: ticket-proc-to-cassandra-hz@betole.com
+ to: betsrv@dualsoft.net
+
+
+kafka:
+  clientId:
+   suffix: hz
+  instances:

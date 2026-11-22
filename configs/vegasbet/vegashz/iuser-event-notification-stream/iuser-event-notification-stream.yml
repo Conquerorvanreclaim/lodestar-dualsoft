@@ -1,0 +1,20 @@
+kafka:
+  client-id:
+    iuser-event-notification-stream-vegashz
+  tolerableLagInSeconds: 3  
+  num:
+    stream: 
+      threads: 8
+  session-timeout-ms: 20000
+  heartbeat-interval-ms: 6000
+
+
+
+kafka-admin:
+    enabled: true
+    topics:
+        - name: IUSER_NOTIFICATIONS
+          numOfPartitions: 1
+          replicationFactor: 3
+          retentionMs: 259200000
+          useUnderscore: true

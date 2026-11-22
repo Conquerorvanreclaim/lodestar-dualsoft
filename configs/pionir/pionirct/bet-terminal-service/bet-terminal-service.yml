@@ -1,0 +1,29 @@
+redis:
+  readBetData: true
+
+database:
+  client-id: bet-terminal-service 
+  program: bet-terminal-service
+  terminal: bet-terminal-service
+  min-idle: 10
+  max-idle: 10
+  max-active: 10
+
+server:
+  compression:
+    enabled: true
+    exclude-user-agents:
+      mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+      min-response-size: 2048
+  tomcat:
+    max-threads: 200
+
+cashoutDenied: false    
+
+
+spring:
+  security:
+    user:
+      name: 
+      password: 
+      roles: 

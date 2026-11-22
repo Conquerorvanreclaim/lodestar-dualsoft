@@ -1,0 +1,19 @@
+#
+# OFFER-REDIS-SINK
+#
+
+kafka:
+  clientId:
+    suffix: okta-oci
+  numOfStreamThreads: 8
+
+redis:
+    databaseNumber: 4
+     
+# language.filter - jezik za koji se upisuju kvote, mecevi sa kafke na drugim jezicima se preskacu
+config:
+    languageFilter: en
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000

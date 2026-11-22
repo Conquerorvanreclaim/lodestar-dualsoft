@@ -1,0 +1,31 @@
+sentinelServersConfig:
+  idleConnectionTimeout: 10000
+  connectTimeout: 15000
+  timeout: 5000
+  retryAttempts: 5
+  retryInterval: 2500
+  failedSlaveReconnectionInterval: 4000
+  failedSlaveCheckInterval: 60000
+  password: imerkurCTredis
+  subscriptionsPerConnection: 5
+  clientName: null
+  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  slaveConnectionMinimumIdleSize: 1
+  slaveConnectionPoolSize: 32
+  checkSentinelsList: false
+  masterConnectionMinimumIdleSize: 1
+  masterConnectionPoolSize: 32
+  readMode: "SLAVE"
+  subscriptionMode: "SLAVE"
+  sentinelAddresses:
+  - "redis://kc1-cz.pionir.io:26379"
+  - "redis://kc2-cz.pionir.io:26379"
+  - "redis://kc3-cz.pionir.io:26379"
+  masterName: "merkurct_master"
+  database: 5
+threads: 16
+nettyThreads: 32
+codec: !<org.redisson.codec.FstCodec> {}
+transportMode: "EPOLL"

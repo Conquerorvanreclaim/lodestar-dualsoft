@@ -1,0 +1,8 @@
+database:
+  client-id: tournament-score-aggregator
+  program: tournament-score-aggregator
+  terminal: tournament-score-aggregator
+
+kafka:
+  clientId:
+    suffix: pionir-ct

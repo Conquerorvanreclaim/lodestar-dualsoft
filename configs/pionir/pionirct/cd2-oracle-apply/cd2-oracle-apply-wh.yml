@@ -1,0 +1,99 @@
+cdc:
+ apply:
+  table-name-prefix:
+
+database:
+ username: pionir
+ password: pionir
+ type: oracle
+ url: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = db-sa-scan.pionir.io)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = piowh1) ) )
+ client-id: cd2
+ program: CD2 Apply Service
+ terminal: cd2OraApply
+ min-idle: 10
+ max-idle: 10
+ max-active: 10
+ 
+kafka:
+  bootstrap-servers: 109.94.103.117:9092,109.94.103.118:9092,109.94.103.119:9092
+  topics.prefix: PIONIR
+  clientId.prefix: PIONIR
+  clientId:
+    suffix: piowh
+  numOfStreamThreads: 8
+  poolMs: 100 #default 100 ms
+  fetchMaxWaitMs: 500 #default 500 ms
+  fetchMaxBytes: 67108864 #64*1024*1024, default je 52428800 (50*1024*1024)
+  instances:
+  - ALL
+  - MERKURRS
+
+cdcs:
+ groups:
+  - groupName: tickets
+    instances:
+    tables:
+    - name: OD_BET      
+    - name: OD_BET_FORMAT      
+    - name: OD_BET_LINE       
+    - name: OD_BET_PICK      
+    - name: OD_BET_PICK_GROUP        
+    - name: OD_BOOK
+    - name: OD_BOOK_ANNEX
+    - name: OD_SPORT
+    - name: OD_LEAGUE      
+    - name: OD_TEAM
+    - name: OD_LEAGUE_ANNEX      
+    - name: OD_LEAGUE_TABLE
+    - name: OD_LEAGUE_GROUP
+    - name: OD_ROUND      
+    - name: OD_MATCH      
+    - name: OD_MATCH_ANNEX
+    - name: CO_CASINO_GAME
+    - name: CO_CASINO_GAME_TYPE
+    - name: CO_COUNTRY
+    - name: CO_GAME_PRODUCER
+    - name: CO_PREVOD
+    - name: CO_PREVOD_JEZIK  
+    - name: CO_PARAMETER
+    - name: CO_PARAMETER_GROUP
+    - name: CO_PARAMETER_LOCATION
+    - name: CO_PARAMETER_TERMINAL
+    - name: CO_PARAMETER_IUSER
+    - name: CO_PROVIDER
+    - name: CO_LOCATION_GROUP
+    - name: CO_LOCATION
+    - name: CO_TERMINAL
+    - name: CO_RISK_TAG
+    - name: CO_USER
+    - name: CO_USER_LOCATION
+    - name: CO_USER_WEB_ROLE
+    - name: QB_CONTEST
+    - name: QB_CONTEST_ROUND
+    - name: IC_VOUCHER
+    - name: IC_VOUCHER_SERIES
+    - name: IC_BONUS
+    - name: IC_USER_BONUS
+    - name: IC_GIFT
+    - name: IC_USER_GIFT
+    - name: IC_USER
+    - name: IC_UIS_MSG
+    - name: IC_DEPOSIT_ACCOUNT
+    - name: IC_DEPOSIT_REQUEST
+    - name: IC_WITHDRAWAL_REQUEST
+    - name: IC_USER_ACCOUNT
+      versionColumn: LSCN
+    - name: IC_USER_ACCOUNT_TRANSACTION
+      ignoredColumns:
+      - AMOUNT
+    - name: IC_CATEGORIZATION
+    - name: IC_CATEGORIZATION_USER
+    - name: W3_TICKET      
+      versionColumn: MTIME
+    - name: W3_TICKET_MATCH_TYPE
+    - name: W3_JOURNAL
+    - name: W3_ETICKET
+      versionColumn: MTIME
+spring:
+    application:
+        name: cd2-oracle-apply

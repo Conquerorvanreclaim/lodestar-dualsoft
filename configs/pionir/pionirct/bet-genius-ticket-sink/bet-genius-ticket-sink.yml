@@ -1,0 +1,17 @@
+database:
+  client-id: bet-genius-ticket-sink
+  program: BetGenius ticket sink
+  terminal: bet-genius-ticket-sink
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+kafka:
+  clientId:
+    suffix: pionirct
+
+token:
+  url: https://merkurxtip-%s-rm.auth.eu-west-1.amazoncognito.com/oauth2/token/
+  environment: production
+  fixedDelayInMiliSec: 1800000
+  

@@ -1,0 +1,40 @@
+database:
+  client-id: iuser-access-tracker
+  program: iuser-access-tracker
+  terminal: iuser-access-tracker
+
+kafka:
+  clientId:
+    suffix: pionir-ct
+
+ipScanner:
+  url: http://ip-scanner:8080/ip-scanner/
+
+suspect:
+  numOfPrevAttempts: 2
+
+ipAddressBlockConfig:
+  enabled: true
+  fixedDelay: 5000
+  blocks:
+    - checkFromSeconds: 600
+      unsuccessLimit: 9
+      unsuccessUsersLimit: 2
+      blockedTimeMinutes: 120
+    - checkFromSeconds: 300
+      unsuccessLimit: 4
+      unsuccessUsersLimit: 0
+      blockedTimeMinutes: 120
+  ignored:
+    - 109.94.109.1/24
+
+countryBlockConfig:
+  enabled: false
+  fixedDelay: 5000
+  blocks:
+    - checkFromSeconds: 300
+      unsuccessLimit: 3
+      unsuccessUsersLimit: 0
+      blockedTimeMinutes: 5
+  ignored:
+    #- RS

@@ -1,0 +1,9 @@
+database:
+  client-id: uis-trans-http-sink
+  program: uis-trans-http-sink
+  terminal: uis-trans-http-sink
+
+kafka:
+  numOfThreads: 8
+  clientId:
+    suffix: pionir-ct

@@ -1,0 +1,8 @@
+{
+    "instance": "soccerbet",
+    "additionalGoogleTagsId": "",
+    "useDiffPngForDiffJPConfig": false,
+    "cdnServerUrl": "https://cdn.soccerbet.rs/v1/",
+    "prodUrl" : "https://www.soccerbet.rs/",
+    "responsiveThreshold" : 1274
+}

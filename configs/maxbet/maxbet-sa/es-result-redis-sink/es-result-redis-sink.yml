@@ -1,0 +1,22 @@
+#
+# ES-RESULT-REDIS-SINK
+#
+
+kafka:
+  clientId:
+    suffix: sa
+  num:
+    stream:
+        threads: 8
+
+
+redis:
+    databaseNumber: 1
+     
+config:
+    compressEnabled: false
+    
+rabbit:
+    messageTtl: 60000
+
+

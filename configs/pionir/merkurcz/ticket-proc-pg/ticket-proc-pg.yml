@@ -1,0 +1,21 @@
+database:
+  username: pionir
+  password: pionir
+  type: postgresql    
+  url: jdbc:pgsql://db1-cz.pionir.io:5432/merkurxtip
+  driver-class-name: com.impossibl.postgres.jdbc.PGDriver 
+  client-id: ticketproc
+  program: Ticket proc pg
+  terminal: ticketprocpg
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+ 
+kafka:
+  clientId:
+    suffix: merkur-cz
+  numberOfThreads: 2
+  numberOfRetries: 20
+  instances: merkurcz
+  enable:
+    idempotence: false

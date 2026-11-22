@@ -1,0 +1,21 @@
+database:
+  client-id: ibet-lobby-api-service
+  program: IBet lobby api service
+  terminal: ibet-lobby-api-service
+  min-idle: 1
+  max-idle: 2
+  max-active: 4
+
+
+iBetLobbyMaxTotalConnections: 20
+iBetLobbyMaxConnectionPerRoute: 20
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
+
+ibet-lobby-api-service:
+  openapi:
+    url: https://localhost:8080

@@ -1,0 +1,10 @@
+kafka:
+  client-id:
+    soccer-ms
+  tolerableLagInSeconds: 3
+  num:
+    stream:
+      threads: 8
+
+ttlWeekDays: 7
+ttlMonthDays: 31
